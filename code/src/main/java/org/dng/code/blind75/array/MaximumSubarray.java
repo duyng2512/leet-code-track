@@ -8,25 +8,23 @@ import java.util.Arrays;
 public class MaximumSubarray {
 
     public int maxSubArray(int[] nums) {
-        int currentTotal = nums[0];
+        int[] currentTotal = new int[nums.length];
+        currentTotal[0] = nums[0];
         int maxTotal = nums[0];
 
         int startIndex = 0;
         int endIndex = 1;
 
         for (int i = 1; i < nums.length; i++) {
-            if (currentTotal + nums[i] < nums[i]) {
-                currentTotal = nums[i]; // Get rid of the negative part
-                startIndex = i;
+            if (currentTotal[i-1] < 0) {
+                currentTotal[i] = nums[i];
             } else {
-                currentTotal = currentTotal + nums[i];
+                currentTotal[i] = nums[i] + currentTotal[i-1];  // If the previous subarray is positive, it is worth to be added
             }
-
-            if (maxTotal < currentTotal) {
-                maxTotal = currentTotal;
-                endIndex = i;
-            }
+            maxTotal = Math.max(currentTotal[i], maxTotal);
         }
+
+        System.out.println("Start " + startIndex + " end " + endIndex);
         return maxTotal;
     }
 
