@@ -1,8 +1,11 @@
 package org.dng.code.blind75.array;
 
+import lombok.Builder;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Builder
 public class TwoSum {
     /**
      * Input: nums = [2,7,11,15], target = 9
