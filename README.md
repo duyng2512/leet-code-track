@@ -1,1 +1,3 @@
-# leet-code-track
+# Leetcode track
+
+My leetcode progress:
