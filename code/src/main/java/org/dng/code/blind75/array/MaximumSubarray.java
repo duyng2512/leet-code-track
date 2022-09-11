@@ -2,8 +2,6 @@ package org.dng.code.blind75.array;
 
 import lombok.Builder;
 
-import java.util.Arrays;
-
 @Builder
 public class MaximumSubarray {
 
@@ -26,9 +24,5 @@ public class MaximumSubarray {
 
         System.out.println("Start " + startIndex + " end " + endIndex);
         return maxTotal;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(MaximumSubarray.builder().build().maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
     }
 }
