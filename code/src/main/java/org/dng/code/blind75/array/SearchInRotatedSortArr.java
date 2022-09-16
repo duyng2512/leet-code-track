@@ -1,10 +1,13 @@
 package org.dng.code.blind75.array;
 
+import lombok.Builder;
+
 import java.util.Arrays;
 
+@Builder
 public class SearchInRotatedSortArr {
 
-    public static int search(int[] nums, int target) {
+    public int search(int[] nums, int target) {
         int rotateIndex = findRotateIndex(nums, 0, nums.length-1);
 
         // if target is the smallest element
@@ -22,7 +25,7 @@ public class SearchInRotatedSortArr {
         }
     }
 
-    public static int bsrSearch(int[] nums, int left, int right, int target) {
+    public int bsrSearch(int[] nums, int left, int right, int target) {
         while (left <= right) {
             int mid = (right + left) / 2;
             if (nums[mid] == target) return mid;
@@ -34,7 +37,7 @@ public class SearchInRotatedSortArr {
         return -1;
     }
 
-    public static int findRotateIndex(int[] nums, int left, int right) {
+    public int findRotateIndex(int[] nums, int left, int right) {
         if (nums[left] < nums[right])
             return 0; // Return First Index
         while (left <= right) {
@@ -51,11 +54,10 @@ public class SearchInRotatedSortArr {
         return 0;
     }
 
-    // 4, 5, 6, 7, 8, 9, 0, 1, 2 len = 9
-    // 10, 1, 2, 5, 6, 7, 9
+
 
     public static void main(String[] args) {
         // System.out.println(SearchInRotatedSortArr.findRotateIndex(new int[]{10, 1, 2, 5, 6, 7, 9}, 0));
-        System.out.println(SearchInRotatedSortArr.search(new int[]{4, 5, 6, 7, 8, 9, 0, 1, 2}, 0));
+        System.out.println(SearchInRotatedSortArr.builder().build().search(new int[]{4, 5, 6, 7, 8, 9, 0, 1, 2}, 0));
     }
 }
