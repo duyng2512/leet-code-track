@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class SearchInRotatedSortArr {
 
     public int search(int[] nums, int target) {
+        if (nums.length == 1) return target == nums[0] ? 0 : -1;
         int rotateIndex = findRotateIndex(nums, 0, nums.length-1);
 
         // if target is the smallest element
@@ -18,10 +19,10 @@ public class SearchInRotatedSortArr {
         if (rotateIndex == 0)
             return bsrSearch(nums, 0, nums.length-1, target);
 
-        if (target < nums[nums.length-1]) {
-            return bsrSearch(Arrays.copyOfRange(nums, 0, rotateIndex), 0, rotateIndex, target);
+        if (target <= nums[nums.length-1]) {
+            return bsrSearch(nums, rotateIndex, nums.length-1, target);
         } else {
-            return bsrSearch(Arrays.copyOfRange(nums, rotateIndex, nums.length-1), rotateIndex, nums.length-1, target);
+            return bsrSearch(nums, 0, rotateIndex, target);
         }
     }
 
@@ -57,7 +58,10 @@ public class SearchInRotatedSortArr {
 
 
     public static void main(String[] args) {
-        // System.out.println(SearchInRotatedSortArr.findRotateIndex(new int[]{10, 1, 2, 5, 6, 7, 9}, 0));
         System.out.println(SearchInRotatedSortArr.builder().build().search(new int[]{4, 5, 6, 7, 8, 9, 0, 1, 2}, 0));
+        System.out.println(SearchInRotatedSortArr.builder().build().search(new int[]{4,5,6,7,0,1,2}, 3));
+        System.out.println(SearchInRotatedSortArr.builder().build().search(new int[]{3, 0}, 3));
+        System.out.println(SearchInRotatedSortArr.builder().build().search(new int[]{3, 5, 1}, 3));
+        System.out.println(SearchInRotatedSortArr.builder().build().search(new int[]{5, 1, 3}, 3));
     }
 }
