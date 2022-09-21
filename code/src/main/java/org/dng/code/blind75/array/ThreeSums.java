@@ -41,6 +41,7 @@ public class ThreeSums {
                     low++;
                     high--;
 
+                    // Skip the duplicate
                     while (low < high && nums[low] == nums[low - 1])
                         low++;
                 }

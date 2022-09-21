@@ -8,10 +8,12 @@ import java.util.Arrays;
 @Builder
 public class MinimumInSortedArr {
 
+    // Array is sorted but rotated, we need to find the smallest elements
     public int findMin(int[] nums) {
         if (nums.length == 1) return nums[0];
 
         int mid =  nums.length / 2;
+        // Abnormal case
         if (nums[mid] < nums[mid-1]) {
             return nums[mid];
         }

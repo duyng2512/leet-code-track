@@ -42,42 +42,31 @@ public class MaximumProductSubArr {
      */
 
     public int maxProduct(int[] nums) {
-        if (nums.length == 0) return 0;
+        if (nums.length == 0) return nums[0];
 
-        int max_so_far = nums[0];
-        int min_so_far = nums[0];
-        int result = max_so_far;
+        int iMax = nums[0];
+        int iMin = nums[0];
+        int maxProduct = nums[0];
 
         for (int i = 1; i < nums.length; i++) {
-            int currMax = Math.max(max_so_far * nums[i], min_so_far * nums[i]);
-            int currMin = Math.min(max_so_far * nums[i], min_so_far * nums[i]);
-            max_so_far = Math.max(nums[i], currMax);
-            min_so_far = Math.min(nums[i], currMin);
-            result = Math.max(max_so_far, result);
+            if (nums[i] < 0) {
+                int temp = iMax;
+                iMax = iMin;
+                iMin = temp;
+            }
+            iMax = Math.max(nums[i], iMax * nums[i]);
+            iMin = Math.min(nums[i], iMin * nums[i]);
+            maxProduct = Math.max(iMax, maxProduct);
         }
-
-        return result;
+        return maxProduct;
     }
-
-    public int maxInThree(int a, int b, int c) {
-        if (a >= b && a >= c) return a;
-        else if (b >= a && b >= c) return b;
-        else return c;
+    public static void main(String[] args) {
+        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {-2, 0, -1} ));
+        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {2, 3, -2, 4} ));
+        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {9, 4, -1, 2, -8} ));
+        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {0, 2} ));
+        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {3,-1, 4} ));
+        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {2,-5, -2, -4, 3} ));
     }
-
-    public int minInThree(int a, int b, int c) {
-        if (a <= b && a <= c) return a;
-        else if (b <= a && b <= c) return b;
-        else return c;
-    }
-
-//    public static void main(String[] args) {
-//        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {-2, 0, -1} ));
-//        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {2, 3, -2, 4} ));
-//        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {9, 4, -1, 2, -8} ));
-//        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {0, 2} ));
-//        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {3,-1, 4} ));
-//        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {2,-5, -2, -4, 3} ));
-//    }
 
 }
