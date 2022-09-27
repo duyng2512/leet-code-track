@@ -48,6 +48,15 @@ public class FruitsIntoBasket {
         for (windowEnd = 0; windowEnd < fruits.length; windowEnd ++) {
 	  frequency.merge(fruits[windowEnd], 1, Integer::sum);
 
+	  /*
+
+	      if (!frequency.containsKey(fruits[windowEnd])) {
+		frequency.put(fruits[windowEnd], 1);
+	      } else {
+		frequency.put(fruits[windowEnd], frequency.get(fruits[windowEnd]) + 1);
+	      }
+	   */
+
 	  while (frequency.size() > 2) {
 	      int leftFruits = fruits[windowStart];
 	      frequency.put(leftFruits, frequency.get(leftFruits) - 1);
