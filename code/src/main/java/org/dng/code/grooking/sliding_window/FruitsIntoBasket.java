@@ -40,9 +40,8 @@ public class FruitsIntoBasket {
 
     public int totalFruit(int[] fruits) {
         Map<Integer, Integer> frequency = new HashMap<>();
-        List<Integer> resultArr = new ArrayList<>();
         int windowStart = 0;
-        int windowEnd = 0;
+        int windowEnd;
         int maxLength = 0;
 
         for (windowEnd = 0; windowEnd < fruits.length; windowEnd ++) {
