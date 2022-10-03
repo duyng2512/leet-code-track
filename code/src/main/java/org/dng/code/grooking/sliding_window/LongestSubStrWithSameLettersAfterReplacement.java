@@ -32,6 +32,19 @@ public class LongestSubStrWithSameLettersAfterReplacement {
         Input: String="aabbbcccdef", k=1
         Output: 3
      */
+     
+     /*
+     	Intuition: Let sample we get rid of K contraints, the problems become
+     	
+     	-> Get the longest substring with the same element, this become very simple
+     	
+     	Condition for longest substrings with the same element will be:
+     	windowEnd - windowStart - maxCount = 0
+     	
+     	Given this we can maintain a string such that
+     	
+     	(length of substring - number of times of the maximum occurring character in the substring) <= k
+      */
 
     public int characterReplacement(String s, int k) {
         	int maxLen = 0, windowStart = 0, windowEnd;
@@ -39,13 +52,13 @@ public class LongestSubStrWithSameLettersAfterReplacement {
 
 	Map<Character, Integer> map = new HashMap<>();
         	for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
-		  map.merge(s.charAt(windowEnd), 1, Integer::sum);
-		  maxCount = Math.max(maxCount, map.get(s.charAt(windowEnd)));
+		map.merge(s.charAt(windowEnd), 1, Integer::sum);
+		maxCount = Math.max(maxCount, map.get(s.charAt(windowEnd)));
 
-		  if (windowEnd - windowStart - maxCount + 1 > k) {
-		      map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
-		      windowStart ++;
-		  }
+		while (windowEnd - windowStart - maxCount + 1 > k) {
+		    map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
+		    windowStart ++;
+		}
 	    maxLen = Math.max(windowEnd - windowStart + 1, maxLen);
         	}
 	return maxLen;
