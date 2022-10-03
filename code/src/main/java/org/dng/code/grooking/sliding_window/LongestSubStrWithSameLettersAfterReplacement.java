@@ -42,7 +42,6 @@ public class LongestSubStrWithSameLettersAfterReplacement {
      	windowEnd - windowStart - maxCount = 0
      	
      	Given this we can maintain a string such that
-     	
      	(length of substring - number of times of the maximum occurring character in the substring) <= k
       */
 

@@ -38,7 +38,6 @@ public class NoRepeatSubStr {
 	Map<Character, Integer> map = new HashMap<>();
  
 	for (end = 0; end < s.length(); end++) {
-	     
 	     if (map.containsKey(s.charAt(end))) {
 		// This already in map
 		start = Math.max(start, map.get(s.charAt(end)) + 1);
