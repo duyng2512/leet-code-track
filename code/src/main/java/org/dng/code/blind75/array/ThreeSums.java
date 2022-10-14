@@ -20,15 +20,14 @@ public class ThreeSums {
             if (i != 0 && nums[i] == nums[i-1])
                 continue;
 
-            // nums[i] >= 0 skip
-            if (nums[i] >= 0)
+            // nums[i] > 0 skip
+            if (nums[i] > 0)
                 break;
 
             int current = nums[i];
             int low = i+1;
             int high = nums.length-1;
-
-
+            
             while (low < high){
                 if (nums[low] + nums[high] + current < 0) {
                     low ++;
