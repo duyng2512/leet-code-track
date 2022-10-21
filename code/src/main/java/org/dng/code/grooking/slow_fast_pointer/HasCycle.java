@@ -1,16 +1,8 @@
 package org.dng.code.grooking.slow_fast_pointer;
 
+import org.dng.code.grooking.slow_fast_pointer.common.ListNode;
+
 public class HasCycle {
-     
-     static class ListNode {
-	int val;
-	ListNode next;
-	
-	ListNode(int x) {
-	     val = x;
-	     next = null;
-	}
-     }
      
      public boolean hasCycle(ListNode head) {
 	if (head == null || head.next == null) {
@@ -27,5 +19,4 @@ public class HasCycle {
 	}
 	return true;
      }
-     
 }

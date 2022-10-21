@@ -58,6 +58,4 @@ public class HappyNumber {
 	int result = happyNumber.takeSquare(happyNumber.takeSquare(10));
 	System.out.println(result);
      }
-     
-     
 }
