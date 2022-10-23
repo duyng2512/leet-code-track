@@ -6,7 +6,7 @@ import java.util.List;
 public class MergeIntervals {
      
      /*
-     Given an array of intervals where intervals[i] = [starti, endi],
+     Given an array of intervals where intervals[i] = [start_i, end_i],
      merge all overlapping intervals, and return an array of the
      non-overlapping intervals that cover all the intervals in the input.
 
@@ -26,7 +26,6 @@ public class MergeIntervals {
 	if (intervals.length == 1) return intervals;
 	MergeUtils.sortByFirstKey(intervals);
 	List<int[]> result = new LinkedList<>();
- 
 	for (int[] interval: intervals) {
 	     int lastIndex = result.size() - 1;
 	     if (result.isEmpty() || result.get(lastIndex)[1] < interval[0]) {
