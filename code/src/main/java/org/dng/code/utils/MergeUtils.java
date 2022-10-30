@@ -1,4 +1,4 @@
-package org.dng.code.grooking.pattern_merge;
+package org.dng.code.utils;
 
 import java.util.Arrays;
 import java.util.Comparator;

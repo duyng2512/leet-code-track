@@ -1,6 +1,7 @@
 package org.dng.code.grooking.pattern_merge;
 
 import lombok.Builder;
+import org.dng.code.utils.MergeUtils;
 
 @Builder
 public class ConflictAppointment {
@@ -60,6 +61,10 @@ public class ConflictAppointment {
 	     }
 	}
 	return removeCount;
+     }
+     
+     public static void main(String[] args) {
+	
      }
      
 }

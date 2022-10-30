@@ -1,6 +1,7 @@
 package org.dng.code.grooking.cyclic_sort;
 
 import lombok.Builder;
+import org.dng.code.utils.MiscUtils;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -33,15 +34,9 @@ public class SetMismatch {
 	int i = 0;
 	while (i < arr.length) {
 	     int correctIdx = arr[i] - 1;
-	     if (arr[i] != arr[correctIdx]) swap(arr, i, correctIdx);
+	     if (arr[i] != arr[correctIdx]) MiscUtils.swap(arr, i, correctIdx);
 	     else i++;
 	}
-     }
-     
-     static void swap(int[] arr, int curIdx, int correctIdx) {
-	int temp = arr[curIdx];
-	arr[curIdx] = arr[correctIdx];
-	arr[correctIdx] = temp;
      }
      
      public int[] findErrorNums(int[] nums) {

@@ -1,6 +1,7 @@
 package org.dng.code.grooking.cyclic_sort;
 
 import lombok.Builder;
+import org.dng.code.utils.MiscUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,15 +28,9 @@ public class FindAllDisappear {
           int i = 0;
           while (i < arr.length) {
                int correctPos = arr[i] - 1;
-               if (arr[i] != arr[correctPos]) swap(arr, i, correctPos);
+               if (arr[i] != arr[correctPos]) MiscUtils.swap(arr, i, correctPos);
                else i++;
           }
-     }
-     
-     static void swap (int[] arr, int index, int correctIdx) {
-          int temp  = arr[index];
-          arr[index] = arr[correctIdx];
-          arr[correctIdx] = temp;
      }
      
      public List<Integer> findDisappearedNumbers(int[] nums) {

@@ -1,9 +1,8 @@
 package org.dng.code.grooking.slow_fast_pointer;
 
 import lombok.Builder;
-import lombok.ToString;
-import org.dng.code.grooking.slow_fast_pointer.common.ListNode;
-import org.dng.code.grooking.slow_fast_pointer.common.ListUtils;
+import org.dng.code.utils.ListNode;
+import org.dng.code.utils.ListUtils;
 
 @Builder
 public class PalindromeLinkedList {

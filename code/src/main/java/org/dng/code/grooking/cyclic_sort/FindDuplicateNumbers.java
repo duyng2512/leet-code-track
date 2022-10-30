@@ -1,9 +1,7 @@
 package org.dng.code.grooking.cyclic_sort;
 
 import lombok.Builder;
-
-import java.util.Arrays;
-import java.util.List;
+import org.dng.code.utils.MiscUtils;
 
 @Builder
 public class FindDuplicateNumbers {
@@ -13,15 +11,9 @@ public class FindDuplicateNumbers {
           
           while (i < nums.length) {
                int correctPos = nums[i]-1;
-               if (nums[i] != nums[correctPos]) swap(nums, i, correctPos);
+               if (nums[i] != nums[correctPos]) MiscUtils.swap(nums, i, correctPos);
                else i++;
           }
-     }
-     
-     static void swap(int[] arr, int curIdx, int correctIdx) {
-          int temp = arr[curIdx];
-          arr[curIdx] = arr[correctIdx];
-          arr[correctIdx] = temp;
      }
      
      public int findDuplicate(int[] nums) {

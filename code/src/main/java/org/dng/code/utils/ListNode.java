@@ -1,6 +1,4 @@
-package org.dng.code.grooking.slow_fast_pointer.common;
-
-import org.dng.code.grooking.slow_fast_pointer.MiddleOfLinkedList;
+package org.dng.code.utils;
 
 public class ListNode {
      public int val;

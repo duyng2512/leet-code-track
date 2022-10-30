@@ -1,5 +1,7 @@
 package org.dng.code.grooking.pattern_merge;
 
+import org.dng.code.utils.MergeUtils;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,5 +41,9 @@ public class MergeIntervals {
 	
 	}
 	return result.toArray(new int[result.size()][]);
+     }
+     
+     public static void main(String[] args) {
+	
      }
 }

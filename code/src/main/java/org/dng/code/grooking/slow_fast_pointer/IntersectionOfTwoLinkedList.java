@@ -1,6 +1,6 @@
 package org.dng.code.grooking.slow_fast_pointer;
 
-import org.dng.code.grooking.slow_fast_pointer.common.ListNode;
+import org.dng.code.utils.ListNode;
 
 public class IntersectionOfTwoLinkedList {
      
@@ -37,6 +37,10 @@ public class IntersectionOfTwoLinkedList {
 	     runB = runB.next;
 	}
 	return null;
+     }
+     
+     public static void main(String[] args) {
+	
      }
      
 }
