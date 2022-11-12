@@ -27,14 +27,25 @@ public class RemoveDuplicate {
           
       */
      
+     /*
+          Intuitive:
+          
+          Let assume array have 5 unique index:
+          If in correct order, each time we encounter a duplicate,
+          it should be in the duplicate count value.
+          
+     
+      */
+     
      public int removeDuplicate(int[] nums) {
           int dupIdx = 1;
           for (int i = 1; i < nums.length; i++) {
-               if (nums[i] != nums[i-1]) {
-                   nums[dupIdx] = nums[i];
-                   dupIdx += 1;
-               };
+               if (nums[i] != nums[i-1]) { // encounter duplicate
+                    nums[dupIdx] = nums[i];
+                    dupIdx++;
+               }
           }
+          System.out.println(Arrays.toString(nums));
           return dupIdx;
      }
      

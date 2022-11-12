@@ -38,38 +38,29 @@ public class ZigZagBds {
       */
      
      public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-	if (root == null) return new ArrayList<>();
+	List<List<Integer>> result = new LinkedList<List<Integer>>();
+	Queue<TreeNode> q = new LinkedList<TreeNode>();
  
-	List<List<Integer>> levels = new ArrayList<>();
-	LinkedList<TreeNode> deque = new LinkedList<>();
-	int level = 0;
-	boolean reverse = false;
-	
-	deque.add(root);
-	
-	while (!deque.isEmpty()) {
-	     levels.add(new ArrayList<>());
-	     int levelLen = deque.size();
-	     for (int i = 0; i < levelLen; i++) {
-	     
-		TreeNode remove = deque.removeLast();
-		levels.get(level).add(remove.val);
-	 
-		if (remove.left != null) deque.add(remove.left);
-		if (remove.right != null) deque.add(remove.right);
+	if(root == null) return result;
+	q.offer(root);
+	int curLevel = 0;
+ 
+	while(!q.isEmpty()){
+	     List<Integer> innerList = new LinkedList<>();
+	     int curSize = q.size();
+	     for(int i = 0; i < curSize; i++){
+		TreeNode curNode = q.poll();
+		if(curNode.left != null) q.offer(curNode.left);
+		if(curNode.right != null) q.offer(curNode.right);
+		innerList.add(curNode.val);
 	     }
-	     
-	     if (reverse) {
-		levelLen = deque.size();
-		for (int i = 0; i < levelLen; i++) {
-		     TreeNode remove = deque.removeLast();
-		     deque.addFirst(remove);
-		}
+	
+	     curLevel++;
+	     if(curLevel % 2 == 0) {
+		Collections.reverse(innerList);
 	     }
-	     
-	     reverse = !reverse;
-	     level++;
+	     result.add(innerList);
 	}
-	return levels;
+	return result;
      }
 }
