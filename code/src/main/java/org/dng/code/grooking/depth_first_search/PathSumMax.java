@@ -2,11 +2,9 @@ package org.dng.code.grooking.depth_first_search;
 
 import org.dng.code.utils.TreeNode;
 
-import java.util.*;
+import java.util.HashMap;
 
-import static org.dng.code.grooking.depth_first_search.SubArrEqualK.*;
-
-public class PathCount {
+public class PathSumMax {
      
      /*
      	Problem Statement

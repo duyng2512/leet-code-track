@@ -2,33 +2,37 @@ package org.dng.code.grooking.binary_tree;
 
 import org.dng.code.utils.TreeNode;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
-public class ListOfDepth {
+public class IsBalanceTree {
      
-     public List<List<Integer>> levelOrder(TreeNode root) {
-	if (root == null) return new ArrayList<>();
+     /*
+     	A balance tree a tree that in every node,
+     	left height and right height can not larger than 1
+      */
+     
+     int height(TreeNode root) {
+	if (root == null) return 0;
 	
-	Queue<TreeNode> queue = new ArrayDeque<>();
-	List<List<Integer>> result = new ArrayList<>();
-	int level = 0;
-	queue.add(root);
+	int leftHeight = height(root.left);
+	int rightHeight = height(root.right);
 	
-	while (!queue.isEmpty()) {
-	     // New Level
-	     if (level == result.size()) result.add(new ArrayList<>());
-	     
-	     int heightLen = queue.size();
-	     
-	     for (int i = 0; i < heightLen; i++) {
-		TreeNode temp = queue.remove();
-		if (temp.left != null) queue.add(temp.left);
-		if (temp.right != null) queue.add(temp.right);
-		result.get(level).add(temp.val);
-	     }
-	     level++;
-	}
-	return result;
+	return Math.max(leftHeight, rightHeight) + 1;
+     }
+     
+     public boolean preOrder(TreeNode treeNode) {
+	if (treeNode == null) return true;
+ 
+	if (Math.abs(height(treeNode.right) - height(treeNode.left)) > 1) return false;
+	
+	return preOrder(treeNode.left) && preOrder(treeNode.right);
+     }
+     
+     public boolean isBalanced(TreeNode root) {
+	return preOrder(root);
      }
      
 }
