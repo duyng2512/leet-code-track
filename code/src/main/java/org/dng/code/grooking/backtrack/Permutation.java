@@ -1,4 +1,4 @@
-package org.dng.code.grooking.subsets;
+package org.dng.code.grooking.backtrack;
 
 import java.util.ArrayList;
 import java.util.List;
