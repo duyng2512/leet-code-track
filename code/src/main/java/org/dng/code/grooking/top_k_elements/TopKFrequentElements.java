@@ -15,18 +15,12 @@ public class TopKFrequentElements {
      public static int[] topKFrequent(int[] nums, int k) {
           Map<Integer, Integer> map = new HashMap<>();
      
-          for (int num : nums) {
+          for (int num : nums)
                map.put(num, map.getOrDefault(num, 0) + 1);
-          }
           
           List<Map.Entry<Integer, Integer>> sort;
           
-          Comparator<Map.Entry<Integer, Integer>> comparator = new Comparator<Map.Entry<Integer, Integer>>() {
-               @Override
-               public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                    return o2.getValue() - o1.getValue();
-               }
-          };
+          Comparator<Map.Entry<Integer, Integer>> comparator = (o1, o2) -> o2.getValue() - o1.getValue();
      
           sort = map.entrySet()
                .stream()
