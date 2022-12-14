@@ -1,4 +1,4 @@
-package org.dng.code.algorithm.search;
+package org.dng.code.algo.binary;
 
 import lombok.Builder;
 

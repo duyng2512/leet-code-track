@@ -1,4 +1,4 @@
-package org.dng.code.algorithm.array;
+package org.dng.code.algo.array;
 
 import java.util.PriorityQueue;
 

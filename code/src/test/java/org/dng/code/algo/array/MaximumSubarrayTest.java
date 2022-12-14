@@ -1,9 +1,7 @@
-package org.dng.code.blind75.array;
+package org.dng.code.algo.array;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class MaximumSubarrayTest {
 

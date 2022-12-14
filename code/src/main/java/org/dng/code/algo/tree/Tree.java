@@ -1,4 +1,4 @@
-package org.dng.code.algorithm.tree;
+package org.dng.code.algo.tree;
 
 import lombok.Builder;
 

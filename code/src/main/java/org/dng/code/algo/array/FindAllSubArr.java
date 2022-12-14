@@ -1,9 +1,8 @@
-package org.dng.code.algorithm.array;
+package org.dng.code.algo.array;
 
 import lombok.Builder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Builder

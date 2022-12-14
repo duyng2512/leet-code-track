@@ -1,8 +1,6 @@
-package org.dng.code.blind75.array;
+package org.dng.code.algo.array;
 
 import lombok.Builder;
-
-import java.util.Arrays;
 
 @Builder
 public class SearchInRotatedSortArr {

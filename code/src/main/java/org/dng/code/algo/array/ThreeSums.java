@@ -1,8 +1,7 @@
-package org.dng.code.blind75.array;
+package org.dng.code.algo.array;
 
 import lombok.Builder;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
