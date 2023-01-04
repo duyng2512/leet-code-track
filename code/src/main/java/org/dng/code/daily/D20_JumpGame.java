@@ -22,18 +22,27 @@ public class D20_JumpGame {
 	if (curIdx >= nums.length) {
 	     return false;
 	}
-	
+ 
 	if (curIdx == nums.length - 1) {
 	     return true;
 	}
-	boolean res = false;
+ 
 	for (int i = 1; i <= nums[curIdx]; i++) {
-	     res = res || run(nums, curIdx + i);
+	     if (run(nums, curIdx + i)) {
+		map.put(curIdx, Index.GOOD);
+		return true;
+	     }
 	}
-	return res;
+ 
+	map.put(curIdx, Index.BAD);
+	return false;
      }
      
      static public boolean canJump(int[] nums) {
+	for (int i = 0; i < nums.length; i++) {
+	     map.put(i, Index.UNKNOWN);
+	}
+	map.put(nums.length - 1, Index.GOOD);
 	return run(nums, 0);
      }
      

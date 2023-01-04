@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author duyntc 12/2022
  */
-public class D20_LongestSubsequenceLimitedSum {
+public class D21_LongestSubsequenceLimitedSum {
      
      /**
       * @desc: https://leetcode.com/problems/longest-subsequence-with-limited-sum/

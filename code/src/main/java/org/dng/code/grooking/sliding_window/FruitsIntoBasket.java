@@ -2,9 +2,7 @@ package org.dng.code.grooking.sliding_window;
 
 import lombok.Builder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Builder
@@ -45,14 +43,19 @@ public class FruitsIntoBasket {
         int maxLength = 0;
 
         for (windowEnd = 0; windowEnd < fruits.length; windowEnd ++) {
-	  frequency.merge(fruits[windowEnd], 1, Integer::sum);
-	  while (frequency.size() > 2) {
-	      int leftFruits = fruits[windowStart];
-	      frequency.put(leftFruits, frequency.get(leftFruits) - 1);
-	      if (frequency.get(leftFruits) == 0) frequency.remove(leftFruits);
-	      windowStart++;
-	  }
-	  maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
+	   frequency.merge(fruits[windowEnd], 1, Integer::sum);
+    
+	   // When there is more than 2 fruits
+	   while (frequency.size() > 2) {
+	        int leftFruits = fruits[windowStart];
+	        // Decrease until basket only have 2 fruits left
+	        frequency.put(leftFruits, frequency.get(leftFruits) - 1);
+	        if (frequency.get(leftFruits) == 0) {
+		   frequency.remove(leftFruits);
+	        }
+	        windowStart++;
+	   }
+	   maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
         }
         return maxLength;
     }

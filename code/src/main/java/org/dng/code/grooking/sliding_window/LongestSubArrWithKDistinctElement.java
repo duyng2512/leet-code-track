@@ -30,44 +30,44 @@ public class LongestSubArrWithKDistinctElement {
  
      	Desc: maintain a map of frequency character
       */
-
-    public int lengthOfLongestSubstringKDistinct(String s, int k) {
-        int windowStart = 0, windowEnd;
-        int maxLen = 0, startIdx = 0, endIdx = 0;
-
-        Map<Character, Integer> map = new HashMap<>();
-
-        for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
-	  map.merge(s.charAt(windowEnd), 1, Integer::sum);
-
-
-	  while (map.size() > k ) {
-	      map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
-
-	      if (map.get(s.charAt(windowStart)) == 0) {
-		map.remove(s.charAt(windowStart));
-	      }
-
-	      windowStart ++;
-	  }
-
-	  if (windowEnd - windowStart + 1 > maxLen) {
-	      startIdx = windowStart;
-	      endIdx = windowEnd;
-	      maxLen = windowEnd - windowStart + 1;
-	  }
-
-        }
-        System.out.println("startIdx: " + startIdx);
-        System.out.println("endIdx: " + endIdx);
-        return maxLen;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(LongestSubArrWithKDistinctElement
-	      	.builder()
-	      	.build()
-	      	.lengthOfLongestSubstringKDistinct("cbbebi", 2));
-    }
-
+     
+     public static void main(String[] args) {
+	System.out.println(LongestSubArrWithKDistinctElement
+	     .builder()
+	     .build()
+	     .lengthOfLongestSubstringKDistinct("cbbebi", 2));
+     }
+     
+     public int lengthOfLongestSubstringKDistinct(String s, int k) {
+	int windowStart = 0, windowEnd;
+	int maxLen = 0, startIdx = 0, endIdx = 0;
+	
+	Map<Character, Integer> map = new HashMap<>();
+	
+	for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
+	     map.merge(s.charAt(windowEnd), 1, Integer::sum);
+	     
+	     
+	     while (map.size() > k) {
+		map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
+		
+		if (map.get(s.charAt(windowStart)) == 0) {
+		     map.remove(s.charAt(windowStart));
+		}
+		
+		windowStart++;
+	     }
+	     
+	     if (windowEnd - windowStart + 1 > maxLen) {
+		startIdx = windowStart;
+		endIdx = windowEnd;
+		maxLen = windowEnd - windowStart + 1;
+	     }
+	     
+	}
+	System.out.println("startIdx: " + startIdx);
+	System.out.println("endIdx: " + endIdx);
+	return maxLen;
+     }
+     
 }
