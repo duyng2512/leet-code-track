@@ -40,14 +40,14 @@ public class LongestSubArrWithKDistinctElement {
      
      public int lengthOfLongestSubstringKDistinct(String s, int k) {
 	int windowStart = 0, windowEnd;
-	int maxLen = 0, startIdx = 0, endIdx = 0;
-	
+	int maxLen = 0;
+ 
 	Map<Character, Integer> map = new HashMap<>();
 	
 	for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
 	     map.merge(s.charAt(windowEnd), 1, Integer::sum);
 	     
-	     
+	     // When there more than k characters, shrink the map
 	     while (map.size() > k) {
 		map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
 		
@@ -59,14 +59,10 @@ public class LongestSubArrWithKDistinctElement {
 	     }
 	     
 	     if (windowEnd - windowStart + 1 > maxLen) {
-		startIdx = windowStart;
-		endIdx = windowEnd;
 		maxLen = windowEnd - windowStart + 1;
 	     }
 	     
 	}
-	System.out.println("startIdx: " + startIdx);
-	System.out.println("endIdx: " + endIdx);
 	return maxLen;
      }
      

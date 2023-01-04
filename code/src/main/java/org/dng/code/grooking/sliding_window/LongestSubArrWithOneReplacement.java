@@ -34,9 +34,9 @@ public class LongestSubArrWithOneReplacement {
 	  }
 
 	  // When number of Zero exceed allow 0, shrink the window
-	  while (countZero > k && left <= right){
+	  while (countZero > k && left <= right) {
 	      if (nums[left] == 0) {
-		countZero --;
+		countZero --; // decrease the k allow
 	      }
 	      left++;
 	  }
