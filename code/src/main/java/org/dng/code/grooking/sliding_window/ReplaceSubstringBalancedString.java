@@ -8,11 +8,36 @@ import java.util.Map;
  */
 public class ReplaceSubstringBalancedString {
      
+     /*
+	You are given a string s of length n containing only four kinds of characters: 'Q', 'W', 'E', and 'R'.
+ 
+	A string is said to be balanced if each of its characters appears n / 4 times where n is the length of the string.
+	
+	Return the minimum length of the substring that can be replaced with any other string of the same length to make s balanced. If s is already balanced, return 0.
+	
+	Input: s = "QWER"
+	Output: 0
+	Explanation: s is already balanced.
+	
+	
+	Input: s = "QQWE"
+	Output: 1
+	Explanation: We need to replace a 'Q' to 'R', so that "RQWE" (or "QRWE") is balanced.
+      */
+     
+     static boolean isPerfect(Map<Character, Integer> map) {
+	return map.entrySet().stream().noneMatch(e -> e.getValue() > 0);
+     }
+     
      static public int balancedString(String s) {
-	// QQQWREWR -> Q to E
-	// Count character first
-	// Detect over limit
-	// If there is no over limit restart start
+	
+	/*
+		Intuitive, first we count all character in string
+		then we find to exceed one of them. For example there are 6 Qs in suppose to be 3 Qs,
+		then there are 3Qs exceed. After the that the problems change to find the smallest
+		substring that contain the exceed part
+	 */
+	
 	int limit = s.length() / 4;
 	Map<Character, Integer> map = new HashMap<>();
 	
@@ -25,37 +50,34 @@ public class ReplaceSubstringBalancedString {
 	     map.merge(s.charAt(i), 1, Integer::sum);
 	}
 	
-	Map<Character, Integer> curMap = new HashMap<>();
-	int start = 0, end = 0;
-	int len = Integer.MAX_VALUE;
+	// Update map
+	map.put('Q', Math.max(0, map.get('Q') - limit));
+	map.put('W', Math.max(0, map.get('W') - limit));
+	map.put('E', Math.max(0, map.get('E') - limit));
+	map.put('R', Math.max(0, map.get('R') - limit));
+	
+	if (isPerfect(map)) {
+	     return 0;
+	}
+	
+	int start = 0, end;
+	int result = Integer.MAX_VALUE;
 	for (end = 0; end < s.length(); end++) {
-	     curMap.merge(s.charAt(end), 1, Integer::sum);
+	     map.merge(s.charAt(end), -1, Integer::sum);
 	     
-	     // Detect over limit
-	     if (curMap.get(s.charAt(end)) > limit) {
-		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-		     
-		     // If there is character that is missing than full-fill it
-		     if (!entry.getKey().equals(s.charAt(end)) && (entry.getValue() < limit)) {
-			map.merge(s.charAt(end), 1, Integer::sum);
-			break;
-		     }
-		     
-		}
-		
-		// len = Math.min(len, (end - start)); // Refactor
-	     } else {
-		start = end;
+	     while (isPerfect(map)) {
+		map.merge(s.charAt(start), 1, Integer::sum);
+		result = Math.min(result, end - start + 1);
+		start++;
 	     }
 	}
-	if (len == Integer.MAX_VALUE) return 0;
-	return len;
+	return result;
      }
      
+     
      public static void main(String[] args) {
-//	System.out.println(balancedString("QWER"));
-//	System.out.println(balancedString("QQER"));
-	System.out.println(balancedString("QQQW"));
+	System.out.println(balancedString("QQQQEERR"));
      }
+     
      
 }
