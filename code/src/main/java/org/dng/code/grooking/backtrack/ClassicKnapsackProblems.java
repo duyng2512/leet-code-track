@@ -1,6 +1,7 @@
 package org.dng.code.grooking.backtrack;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClassicKnapsackProblems {
      
@@ -30,7 +31,6 @@ public class ClassicKnapsackProblems {
       */
      
      public static int solve(int[] weight, int[] profits, int cap) {
-	AtomicInteger globalMax = new AtomicInteger();
 	return backtrack(weight, profits, cap, 0);
      }
      
@@ -49,12 +49,50 @@ public class ClassicKnapsackProblems {
 	if (weight[index] <= capacity) {
 	     profit1 = profits[index] + backtrack(weight, profits, capacity - weight[index], index + 1);
 	}
-	
+ 
 	// Not choose current item
 	int profit2 = backtrack(weight, profits, capacity, index + 1);
-	
+ 
 	return Math.max(profit1, profit2);
      }
+     
+     public static int solveMemo(int[] weight, int[] profits, int cap) {
+	Map<Integer, Integer> map = new HashMap<>();
+	return backtrackMemo(map, weight, profits, cap, 0);
+     }
+     
+     private static int backtrackMemo(Map<Integer, Integer> map,
+			        int[] weight,
+			        int[] profits,
+			        int capacity,
+			        int index) {
+	
+	// Base case
+	if (capacity <= 0 || index >= weight.length) {
+	     return 0;
+	}
+	
+	int key = index * 1000 + capacity;
+	int result;
+	
+	if (map.containsKey(key)) {
+	     result = map.get(key);
+	} else {
+	     // At every level there are two choice, choose of not choose current item
+	     int profit1 = 0;
+	     if (weight[index] <= capacity) {
+		profit1 = profits[index] + backtrackMemo(map, weight, profits, capacity - weight[index], index + 1);
+	     }
+	     
+	     // Not choose current item
+	     int profit2 = backtrackMemo(map, weight, profits, capacity, index + 1);
+	     result = Math.max(profit1, profit2);
+	}
+	
+	map.put(key, result);
+	return result;
+     }
+     
      
      /**
       * Items: { Apple, Orange, Banana, Melon }
@@ -64,6 +102,12 @@ public class ClassicKnapsackProblems {
       */
      public static void main(String[] args) {
 	System.out.println(solve(
+	     new int[]{2, 3, 1, 4},
+	     new int[]{4, 5, 3, 7},
+	     5
+	));
+ 
+	System.out.println(solveMemo(
 	     new int[]{2, 3, 1, 4},
 	     new int[]{4, 5, 3, 7},
 	     5
