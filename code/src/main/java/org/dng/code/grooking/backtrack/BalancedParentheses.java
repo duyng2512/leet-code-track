@@ -5,6 +5,17 @@ import java.util.List;
 
 public class BalancedParentheses {
      
+     /**
+      * Given n pairs of parentheses,
+      * write a function to generate all combinations of well-formed parentheses.
+      *
+      * Input: n = 3
+      * Output: ["((()))","(()())","(())()","()(())","()()()"]
+      *
+      * Input: n = 1
+      * Output: ["()"]
+      */
+     
      public static List<String> generateParenthesis(int n) {
 	List<String> ans = new ArrayList<>();
 	backtrack(ans, new StringBuilder(), 0, 0, n);
@@ -31,5 +42,6 @@ public class BalancedParentheses {
      
      public static void main(String[] args) {
 	List<String> result = generateParenthesis(2);
+	System.out.println(result);
      }
 }

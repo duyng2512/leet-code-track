@@ -29,8 +29,7 @@ public class Permutation {
      
      public static List<List<Integer>> permute(int[] nums) {
           List<List<Integer>> list = new ArrayList<>();
-          // Arrays.sort(nums); // not necessary
-          backtrack(list, new ArrayList<>(), nums);
+	backtrack(list, new ArrayList<>(), nums);
           return list;
      }
      
@@ -48,7 +47,8 @@ public class Permutation {
      }
      
      public static void main(String[] args){
-     
+     	int[] arr = new int[] {1, 2, 3};
+	System.out.println(permute(arr));
      }
      
 }
