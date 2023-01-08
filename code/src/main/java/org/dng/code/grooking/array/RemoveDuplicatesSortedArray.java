@@ -6,17 +6,17 @@ package org.dng.code.grooking.array;
 public class RemoveDuplicatesSortedArray {
      
      public int removeDuplicates(int[] nums) {
-	int dupIdx = 1;
-	for (int i = 1; i < nums.length; i++) {
+	int writeIdx = 1;
+	for (int readIdx = 1; readIdx < nums.length; readIdx++) {
 	     
 	     // Not duplicate then let it be the right index
-	     if (nums[i - 1] != nums[i]) {
-		nums[dupIdx] = nums[i];
-		dupIdx++;
+	     if (nums[readIdx - 1] != nums[readIdx]) {
+		nums[writeIdx] = nums[readIdx];
+		writeIdx++;
 	     }
 	}
 	
-	return dupIdx;
+	return writeIdx;
      }
      
 }
