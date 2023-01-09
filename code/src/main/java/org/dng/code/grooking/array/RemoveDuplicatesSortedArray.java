@@ -9,6 +9,7 @@ public class RemoveDuplicatesSortedArray {
 	int writeIdx = 1;
 	for (int readIdx = 1; readIdx < nums.length; readIdx++) {
 	     
+	     
 	     // Not duplicate then let it be the right index
 	     if (nums[readIdx - 1] != nums[readIdx]) {
 		nums[writeIdx] = nums[readIdx];

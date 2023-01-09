@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class MinimumInSortedArr {
      
      // Array is sorted but rotated, we need to find the smallest elements
-     // 4 5 1 2 3
+     // 4 5 6 7 1 2 3
      
      public int findMin(int[] nums) {
 	if (nums.length == 1) return nums[0];

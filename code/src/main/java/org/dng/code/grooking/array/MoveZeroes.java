@@ -8,10 +8,12 @@ import java.util.Arrays;
 public class MoveZeroes {
      
      /**
-      * Given an integer array nums, move all 0's to the end of it while maintaining
-      * the relative order of the non-zero elements.
+      * Given an integer array nums, move all 0's to
+      * the end of it while maintaining the relative
+      * order of the non-zero elements.
       * <p>
-      * Note that you must do this in-place without making a copy of the array.
+      * Note that you must do this in-place without
+      * making a copy of the array.
       * <p>
       * <p>
       * <p>
@@ -28,8 +30,15 @@ public class MoveZeroes {
       */
      
      static public void moveZeroes(int[] nums) {
+     
+	/**
+	 * Intuitive, we have writeIndex and readIndex,
+	 * when there is non-zero element, writeIndex
+	 * should be write
+	 */
+  
 	int writeIdx = 0;
-	
+ 
 	for (int readIdx = 0; readIdx < nums.length; readIdx++) {
 	     if (nums[readIdx] != 0) {
 		nums[writeIdx] = nums[readIdx];

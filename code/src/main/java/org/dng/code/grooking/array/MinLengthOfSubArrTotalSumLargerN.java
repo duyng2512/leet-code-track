@@ -36,14 +36,19 @@ public class MinLengthOfSubArrTotalSumLargerN {
     public int minLength(int[] nums, int target) {
         int minLength = Integer.MAX_VALUE;
         int sumArr = 0;
-        int j = 0;
+        int start = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            sumArr += nums[i];
+        for (int end = 0; end < nums.length; end++) {
+            sumArr += nums[end];
+     
+	   /**
+	    * Intuitive when detect there are abnormal
+	    * Start index increase
+	    */
             while (sumArr >= target) {
-                minLength = Math.min(minLength, i - j + 1);
-                sumArr -= nums[j];
-                j++;
+                minLength = Math.min(minLength, end - start + 1);
+                sumArr -= nums[start];
+                start++;
             }
         }
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
