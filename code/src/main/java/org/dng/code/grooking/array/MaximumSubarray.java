@@ -10,6 +10,8 @@ public class MaximumSubarray {
         currentTotal[0] = nums[0];
         int maxTotal = nums[0];
 
+        // If there is negative number it is not worth to keep it
+        
         for (int i = 1; i < nums.length; i++) {
             if (currentTotal[i-1] < 0) {
                 currentTotal[i] = nums[i];

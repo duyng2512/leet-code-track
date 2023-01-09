@@ -7,10 +7,11 @@ public class FindNLargestNumber {
 
     public int findKthLargest(int[] nums, int k) {
      
+         PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.comparingInt(n -> n));
      
-         PriorityQueue<Integer> heap = new PriorityQueue<Integer>(Comparator.comparingInt(n -> n));
-     
-         // keep k largest elements in the heap
+         // Intuitive: push element to heap
+         // However when there are more item
+         // in heap push them out.
          for (int n : nums) {
 	    heap.add(n);
 	    if (heap.size() > k)
