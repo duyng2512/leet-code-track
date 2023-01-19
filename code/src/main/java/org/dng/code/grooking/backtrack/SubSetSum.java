@@ -9,7 +9,8 @@ public class SubSetSum {
      
      /**
       * Problem Statement
-      * Given a set of positive numbers, determine if a subset exists whose sum is equal to a given number ‘S’.
+      * Given a set of positive numbers, determine if a subset
+      * exists whose sum is equal to a given number ‘S’.
       * <p>
       * Example 1:
       * Input: {1, 2, 3, 7}, S=6
@@ -24,7 +25,8 @@ public class SubSetSum {
       * Example 3:
       * Input: {1, 3, 4, 8}, S=6
       * Output: False
-      * The given set does not have any subset whose sum is equal to '6'.
+      * The given set does not have any subset whose sum is equal
+      * to '6'.
       */
      
      static public boolean solve(int[] arr, int sum) {
@@ -34,18 +36,16 @@ public class SubSetSum {
      }
      
      static public boolean backtrack(Boolean[][] memo, int[] arr, int sum, int curSum, int index) {
-	if (curSum == sum) {
+	if (curSum == sum)
 	     return true;
-	}
-	
-	if (index == arr.length) {
+     
+	if (index == arr.length)
 	     return false;
-	}
-	
+     
 	if (memo[index][curSum] != null) {
 	     return memo[index][curSum];
 	}
-	
+ 
 	boolean choose = false;
 	if (curSum + arr[index] <= sum) {
 	     choose = backtrack(memo, arr, sum, curSum + arr[index], index + 1);

@@ -33,35 +33,36 @@ public class PopulatingNextRightPointers {
           order as connected by the next pointers, with '#' signifying the end of each level.
       */
      public Node connect(Node root) {
-          if (root ==  null) return null;
-          
-          List<List<Node>> result = new ArrayList<>();
-          Queue<Node> queue = new ArrayDeque<>();
-          int level = 0;
-          queue.add(root);
-          
-          
-          while (!queue.isEmpty()) {
-               if (level == result.size()) {
-                    result.add(new ArrayList<>()); // Start a new level
-               }
-               
-               int levelLen = queue.size();
-               for (int i = 0; i < levelLen; i++) {
-                    Node temp = queue.remove();
-                    result.get(level).add(temp);
-                    if (temp.left != null) queue.add(temp.left);
-                    if (temp.right != null) queue.add(temp.right);
-               }
-               level++;
-          }
-          result.forEach(levelNodes -> {
-               for (int i = 0; i < levelNodes.size(); i++) {
-                    if ( i != levelNodes.size()-1) levelNodes.get(i).next = levelNodes.get(i+1);
-                    else levelNodes.get(i).next = null;
-               }
-          });
-          return root;
+	if (root == null) return null;
+ 
+	List<List<Node>> result = new ArrayList<>();
+	Queue<Node> queue = new ArrayDeque<>();
+	int level = 0;
+	queue.add(root);
+ 
+	// Perform BFS
+	while (!queue.isEmpty()) {
+	     if (level == result.size()) {
+		result.add(new ArrayList<>()); // Start a new level
+	     }
+	
+	     int levelLen = queue.size();
+	     for (int i = 0; i < levelLen; i++) {
+		Node temp = queue.remove();
+		result.get(level).add(temp);
+		if (temp.left != null) queue.add(temp.left);
+		if (temp.right != null) queue.add(temp.right);
+	     }
+	     level++;
+	}
+ 
+	result.forEach(levelNodes -> {
+	     for (int i = 0; i < levelNodes.size(); i++) {
+		if (i != levelNodes.size() - 1) levelNodes.get(i).next = levelNodes.get(i + 1);
+		else levelNodes.get(i).next = null;
+	     }
+	});
+	return root;
      }
      
      public static void main(String[] args) {

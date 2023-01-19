@@ -63,12 +63,27 @@ public class ClimbingStairs {
 	for (int i = 3; i < n + 1; i++) {
 	     arr[i] = arr[i - 1] + arr[i - 2];
 	}
-	
+ 
 	return arr[n];
      }
      
-     public static void main(String[] args) {
-	System.out.println(climbStairs(10)); // 89
-	System.out.println(runArray(10)); // 89
-     }
+//     public static void main(String[] args) {
+//	System.out.println(climbStairs(10)); // 89
+//	System.out.println(runArray(10)); // 89
+//
+//     }
+//
+//     public static void main(String[] args) {
+//	String checkString = "aa";
+//	char[] arr = new char[checkString.length()];
+//
+//	for (int i = 0; i < checkString.length(); i++) {
+//	     checkString.charAt(0);
+//	}
+//	Character.getNumericValue()
+//	checkString.substring()
+//
+//
+//	return "Test";
+//     }
 }

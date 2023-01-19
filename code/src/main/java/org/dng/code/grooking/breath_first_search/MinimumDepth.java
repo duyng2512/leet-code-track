@@ -32,7 +32,6 @@ public class MinimumDepth {
 	if (root == null) return 0;
  
 	Queue<TreeNode> queue = new ArrayDeque<>();
-	List<Double> average = new ArrayList<>();
 	queue.add(root);
 	int level = 1;
 	while (!queue.isEmpty()) {

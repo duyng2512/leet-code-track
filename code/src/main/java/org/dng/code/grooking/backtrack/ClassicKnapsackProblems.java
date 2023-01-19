@@ -7,7 +7,8 @@ public class ClassicKnapsackProblems {
      
      /**
       * Introduction
-      * Given the weights and profits of ‘N’ items, we are asked to put these items in a knapsack which has a capacity ‘C’.
+      * Given the weights and profits of ‘N’ items, we are asked to put these items in a knapsack which
+      * has a capacity ‘C’.
       * The goal is to get the maximum profit out of the items in the knapsack.
       * Each item can only be selected once, as we don’t have multiple quantities of any item.
       * <p>
@@ -19,7 +20,8 @@ public class ClassicKnapsackProblems {
       * Profits: { 4, 5, 3, 7 }
       * Knapsack capacity: 5
       * <p>
-      * Let’s try to put various combinations of fruits in the knapsack, such that their total weight is not more than 5:
+      * Let’s try to put various combinations of fruits in the knapsack, such that their total weight is
+      * not more than 5:
       * <p>
       * Apple + Orange (total weight 5) => 9 profit
       * Apple + Banana (total weight 3) => 7 profit

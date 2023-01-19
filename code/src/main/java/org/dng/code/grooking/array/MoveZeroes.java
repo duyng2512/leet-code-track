@@ -31,10 +31,10 @@ public class MoveZeroes {
      
      static public void moveZeroes(int[] nums) {
      
-	/**
+	/*
 	 * Intuitive, we have writeIndex and readIndex,
 	 * when there is non-zero element, writeIndex
-	 * should be write
+	 * should be written
 	 */
   
 	int writeIdx = 0;

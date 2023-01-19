@@ -13,9 +13,6 @@ public class NaryTreeLevelOrderTraversal {
      public static void main(String[] args) {
 	
      }
-     
-     ;
-     
      public List<List<Integer>> levelOrder(Node root) {
 	if (root == null) return new ArrayList<>();
 	

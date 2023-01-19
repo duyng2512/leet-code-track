@@ -11,9 +11,7 @@ public class PartitionEqualSubsetSum {
       * Given an integer array nums, return true if you can partition
       * the array into two subsets such that the sum of the elements
       * in both subsets is equal or false otherwise.
-      * <p>
-      * <p>
-      * <p>
+      *
       * Example 1:
       * Input: nums = [1,5,11,5]
       * Output: true
@@ -52,7 +50,8 @@ public class PartitionEqualSubsetSum {
 	     } else {
 	     
 		/**
-		 * Intuitive: at every index, we have two choice, choose or notChoose current index to add to sum left or sum right
+		 * Intuitive: at every index, we have two choice, choose or notChoose current index to add
+		 * to sum left or sum right
 		 * We can use memo, to remember with this index, this sum, can lead to a success path or not
 		 */
 		

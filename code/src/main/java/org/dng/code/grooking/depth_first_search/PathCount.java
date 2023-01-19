@@ -2,25 +2,22 @@ package org.dng.code.grooking.depth_first_search;
 
 import org.dng.code.utils.TreeNode;
 
-import java.util.*;
-
-import static org.dng.code.grooking.depth_first_search.SubArrEqualK.*;
+import java.util.HashMap;
 
 public class PathCount {
      
      /*
-     	Problem Statement
+     	Problem Statement:
+     	
 	Given a binary tree and a number ‘S’,
 	find all paths in the tree such that the sum of all the
 	node values of each path equals ‘S’.
+	
 	Please note that the paths can start or end at any node but
 	all paths must follow direction from parent to child (top to bottom).
 	
 	Link: https://leetcode.com/problems/path-sum-iii/solution/
-      */
-     
-     
-     /*
+
      	Intuitive:
      	
      	There are two scenarios for this:

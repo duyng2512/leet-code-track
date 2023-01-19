@@ -33,7 +33,7 @@ public class BinaryTreeLeveOrderTraversal {
      
      public void helper(TreeNode node, int level) {
 	// start the current level
-	if (levels.size() == level) levels.add(new ArrayList<Integer>());
+	if (levels.size() == level) levels.add(new ArrayList<>());
 	
 	// fulfil the current level
 	levels.get(level).add(node.val);

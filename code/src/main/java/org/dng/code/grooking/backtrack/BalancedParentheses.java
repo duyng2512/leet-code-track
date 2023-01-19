@@ -23,14 +23,22 @@ public class BalancedParentheses {
      }
      
      public static void backtrack(List<String> ans, StringBuilder cur, int open, int close, int max){
+     
+	/*
+	 * Intuitive: we maintain the number of ( and )
+	 * If there are least ( than allow number than add it to current String
+	 * If there are least ) than ( add ( to current String
+	 * Remember to clean up
+	 */
+  
 	if (cur.length() == max * 2) {
 	     ans.add(cur.toString());
 	}
-	
+ 
 	if (open < max) {
 	     cur.append("(");
-	     backtrack(ans, cur, open+1, close, max);
-	     cur.deleteCharAt(cur.length()-1);
+	     backtrack(ans, cur, open + 1, close, max);
+	     cur.deleteCharAt(cur.length() - 1);
 	}
 	
 	if (close < open) {

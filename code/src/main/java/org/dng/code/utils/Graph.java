@@ -58,8 +58,6 @@ public class Graph {
      
      /**
       * BFS
-      *
-      * @param args
       */
      static public List<List<Integer>> bfs(List<List<Integer>> graph) {
 	List<List<Integer>> paths = new ArrayList<>();

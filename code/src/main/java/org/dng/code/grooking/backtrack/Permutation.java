@@ -38,11 +38,16 @@ public class Permutation {
                ans.add(new ArrayList<>(tempList));
           } else {
                for (int num: nums) {
-                    if (tempList.contains(num)) continue;
-                    tempList.add(num);
-                    backtrack(ans, tempList, nums);
-                    tempList.remove(tempList.size()-1);
-               }
+     
+		/**
+		 * Intuitive: add one number to current temp array
+		 */
+   
+		if (tempList.contains(num)) continue;
+		tempList.add(num);
+		backtrack(ans, tempList, nums);
+		tempList.remove(tempList.size() - 1);
+	     }
           }
      }
      

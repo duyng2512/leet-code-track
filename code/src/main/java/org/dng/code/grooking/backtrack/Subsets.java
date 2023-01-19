@@ -10,8 +10,6 @@ public class Subsets {
       * subsets (the power set).
       *
       * The solution set must not contain duplicate subsets. Return the solution in any order.
-      * @param nums
-      * @return
       */
      public static List<List<Integer>> subsets(int[] nums) {
 	List<List<Integer>> ans = new ArrayList<>();
@@ -24,7 +22,7 @@ public class Subsets {
 	ans.add(new ArrayList<>(temp));
 	for (int i = start; i < nums.length; i++) {
 	     temp.add(nums[i]);
-	     backtrack(ans, temp, nums, i+1);
+	     backtrack(ans, temp, nums, i + 1);
 	     temp.remove(temp.size() - 1);
 	}
      }

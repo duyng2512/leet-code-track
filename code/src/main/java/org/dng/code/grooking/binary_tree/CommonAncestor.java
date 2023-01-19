@@ -19,8 +19,14 @@ public class CommonAncestor {
      
      public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 	Deque<TreeNode> queue = new ArrayDeque<>();
-	
-	// Map of node and its ancestor
+ 
+	/**
+	 * Intuitive: Building a map of Node and its ancestor
+	 *
+	 * Queue<TreeNode> queue
+	 * Map<TreeNode TreeNode> map
+	 *
+	 */
 	Map<TreeNode, TreeNode> map = new HashMap<>();
 	queue.push(root);
 	map.put(root, null);
@@ -42,7 +48,7 @@ public class CommonAncestor {
 	
 	Set<TreeNode> ancestor = new HashSet<>();
 	
-	ancestor.add(p);
+	//  Build a path of ancestor of P
 	while (p != null) {
 	     ancestor.add(p);
 	     p = map.get(p);
