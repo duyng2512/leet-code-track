@@ -49,15 +49,15 @@ public class RemoveAllAdjacentDuplicatesStringII {
 	for (int i = 1; i < s.length(); i++) {
 	     Character cur = s.charAt(i);
 	     stringBuilder.append(cur);
-	     System.out.println("Index " + i + " Stack " + stack + " " + stringBuilder + " prev " + prev);
+	     // System.out.println("Index " + i + " Stack " + stack + " " + stringBuilder + " prev " + prev);
 	     
 	     if (!cur.equals(prev)) {
 		stack.add(1);
 		prev = cur;
 	     } else {
-		int pop = stack.pop();
-		stack.add(pop + 1); // Update last index
-		if (pop + 1 == k) {
+		int inc = stack.pop() + 1;
+		stack.add(inc); // Update last index
+		if (inc == k) {
 		     stack.pop();
 		     stringBuilder = new StringBuilder(stringBuilder.substring(0, stringBuilder.length() - k));
 		     if (stringBuilder.length() >= 1) {
