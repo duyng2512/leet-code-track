@@ -58,15 +58,10 @@ public class DisjointSet {
      }
      
      
-     /*
-      * OPTIMIZE CODE
-      */
+     /* OPTIMIZE CODE */
      
      /**
       * Optimize solution
-      *
-      * @param v
-      * @return
       */
      public int find(int v) {
 	if (v == root[v]) {

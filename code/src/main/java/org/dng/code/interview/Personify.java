@@ -1,4 +1,4 @@
-package org.dng.code.hackerank;
+package org.dng.code.interview;
 
 import java.util.Stack;
 

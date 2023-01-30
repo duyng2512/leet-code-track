@@ -1,4 +1,4 @@
-package org.dng.code.grooking.backtrack;
+package org.dng.code.grooking.dynamic_programming;
 
 import java.util.HashMap;
 import java.util.Map;

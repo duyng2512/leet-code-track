@@ -4,6 +4,7 @@ package org.dng.code.grooking.graph;
  * @author duyntc 01/2023
  */
 public class GraphValidTree {
+     // Disjoint set
      
      /**
       * You have a graph of n nodes labeled from 0 to n - 1.
