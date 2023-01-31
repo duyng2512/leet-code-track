@@ -15,6 +15,27 @@ public class SubArrEqualK {
      // VAL:     [1,1,1]
      // TOTAL:   [1,2,3]
      
+     /**
+      * Given an array of integers nums and an integer k, return the total number
+      * of subarrays whose sum equals to k.
+      *
+      * A subarray is a contiguous non-empty sequence of elements within an array.
+      *
+      *
+      *
+      * Example 1:
+      *
+      * Input: nums = [1,1,1], k = 2
+      * Output: 2
+      * Example 2:
+      *
+      * Input: nums = [1,2,3], k = 3
+      * Output: 2
+      * @param arr
+      * @param target
+      * @return
+      */
+     
      public static int windowSum(List<Integer> arr, int target) {
 	
 	int count = 0, sum = 0;
@@ -25,18 +46,21 @@ public class SubArrEqualK {
 	
 	for (Integer integer : arr) {
 	     sum += integer;
+	     
 	     // When the first element equal target right away
 	     if(sum == target){
 		count = 1;
 		map.put(sum, 1);
 	     }
 	     
-	     
 	     if (map.containsKey(sum - target)) {
 		count += map.get(sum - target);
 	     }
+	     
 	     map.put(sum, map.getOrDefault(sum, 0) + 1);
 	}
+ 
+	System.out.println(map);
 	return count;
      }
      

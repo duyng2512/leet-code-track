@@ -19,7 +19,6 @@ public class BestTimeBuySellStockII {
 	     }
 	     prev = current;
 	}
-	total += current - prev;
 	return total;
      }
      

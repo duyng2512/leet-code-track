@@ -37,7 +37,7 @@ public class PathSum {
 	     preOrderSum(root.left, pathNode, pathNodes, remainSum - root.val);
 	     preOrderSum(root.right, pathNode, pathNodes, remainSum - root.val);
 	}
-	System.out.println("Last Node " + root.val);
+	
 	// Remove last path ? If we don't remove them, the pathNode keep raising the whole tree
 	pathNode.remove(pathNode.size() - 1);
      }

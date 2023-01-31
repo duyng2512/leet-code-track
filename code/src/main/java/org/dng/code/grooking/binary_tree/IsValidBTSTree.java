@@ -33,10 +33,10 @@ public class IsValidBTSTree {
      public boolean preOrder(TreeNode root, Integer min, Integer max) {
 	if (root == null) return true;
 	
-	if ((max != null && root.val > max )
-	||  (min != null && root.val < min))
-	    return false;
-	System.out.println("Max " + max + " min " + min + " val " + root.val);
+	if ((max != null && root.val > max ) ||  (min != null && root.val < min)) {
+	     return false;
+	}
+	
 	return preOrder(root.left, min, root.val)
 	     && preOrder(root.right, root.val, max);
      }
