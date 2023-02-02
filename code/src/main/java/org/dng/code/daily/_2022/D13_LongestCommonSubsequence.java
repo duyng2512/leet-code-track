@@ -1,4 +1,4 @@
-package org.dng.code.daily;
+package org.dng.code.daily._2022;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

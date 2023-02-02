@@ -1,8 +1,6 @@
-package org.dng.code.daily;
+package org.dng.code.daily._2022;
 
 import org.dng.code.utils.TreeNode;
-
-import java.util.List;
 
 public class D5_BinaryTreeMaximumPathSum {
      

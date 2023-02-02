@@ -1,4 +1,4 @@
-package org.dng.code.daily;
+package org.dng.code.daily._2022;
 
 import org.dng.code.utils.ListNode;
 import org.dng.code.utils.TreeNode;

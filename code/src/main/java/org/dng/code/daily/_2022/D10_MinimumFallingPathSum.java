@@ -1,4 +1,4 @@
-package org.dng.code.daily;
+package org.dng.code.daily._2022;
 
 public class D10_MinimumFallingPathSum {
      
