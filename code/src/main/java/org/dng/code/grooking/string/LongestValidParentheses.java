@@ -1,6 +1,5 @@
-package org.dng.code.grooking.substring;
+package org.dng.code.grooking.string;
 
-import javax.swing.*;
 import java.util.Stack;
 
 /**

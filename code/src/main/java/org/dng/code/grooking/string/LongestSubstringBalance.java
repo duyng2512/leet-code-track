@@ -1,4 +1,4 @@
-package org.dng.code.grooking.substring;
+package org.dng.code.grooking.string;
 
 import java.io.IOException;
 import java.util.HashMap;
