@@ -2,11 +2,6 @@ package org.dng.code.grooking.binary_tree;
 
 import org.dng.code.utils.TreeNode;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-
 public class IsBalanceTree {
      
      /*
@@ -27,12 +22,33 @@ public class IsBalanceTree {
 	if (treeNode == null) return true;
  
 	if (Math.abs(height(treeNode.right) - height(treeNode.left)) > 1) return false;
-	
+ 
 	return preOrder(treeNode.left) && preOrder(treeNode.right);
      }
      
      public boolean isBalanced(TreeNode root) {
 	return preOrder(root);
+     }
+     
+     // Alternative
+     public boolean isBalanceBottomUp(TreeNode root) {
+	return getHeights(root) != -1;
+     }
+     
+     public int getHeights(TreeNode root) {
+	
+	if (root == null) {
+	     return 0;
+	}
+	
+	int leftHeight = getHeights(root.left);
+	int rightHeight = getHeights(root.right);
+	
+	// Edge case
+	if (leftHeight == -1 || rightHeight == -1 || Math.abs(rightHeight - leftHeight) > 1) return -1;
+	
+	// Normal case
+	return Math.abs(rightHeight - leftHeight) + 1;
      }
      
 }
