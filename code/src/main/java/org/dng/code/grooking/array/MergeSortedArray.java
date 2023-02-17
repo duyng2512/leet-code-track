@@ -37,24 +37,37 @@ public class MergeSortedArray {
       * @param m
       * @param nums2
       * @param n
+      *
+      * Pattern three pointer
       */
      
+     /**
+      *
+      *
+      *
+      * Why we need p1 >= 0
+      *
+      * 7 8 9 0 0 0 0 0
+      * 1 2 3 4 5
+      */
      public void merge(int[] nums1, int m, int[] nums2, int n) {
-	int[] num1Copy = Arrays.copyOfRange(nums1, 0, m);
 	
 	int p1 = m - 1, p2 = n - 1;
+	int index = m + n - 1;
 	
-	for (int p = m + n - 1; p >= 0; p--) {
-	     if (p2 < 0)
-		break;
-	     
-	     if (p1 >= 0 && num1Copy[p1] < nums2[p2]) {
-		nums1[p] = num1Copy[p2--];
+	while (p2 > 0) {
+	
+	     if (p1 >= 0 && nums1[p1] > nums2[p2]) {
+		nums1[index] = nums1[p1];
+		index--;
+		p1--;
 	     } else {
-		nums1[p] = nums2[p1--];
+		nums1[index] = nums2[p2];
+		index--;
+		p2--;
 	     }
-	     
 	}
+     
      }
      
 }

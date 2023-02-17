@@ -2,7 +2,10 @@ package org.dng.code.grooking.binary_tree;
 
 import org.dng.code.utils.TreeNode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
 
 public class MinimalTree {
      
@@ -33,8 +36,8 @@ public class MinimalTree {
 	int middle = nums.length/2;
 	TreeNode node = new TreeNode(nums[middle]);
 	node.left = merge(Arrays.copyOfRange(nums, 0, middle));
-	node.right = merge(Arrays.copyOfRange(nums, middle+1, nums.length));
-	
+	node.right = merge(Arrays.copyOfRange(nums, middle + 1, nums.length));
+ 
 	return node;
      }
      
@@ -42,4 +45,18 @@ public class MinimalTree {
 	return merge(nums);
      }
      
+     public static void main(String[] args) {
+	List<Integer> myList = new ArrayList<>();
+	myList.add(1);
+	myList.add(2);
+	myList.add(3);
+	
+	ListIterator<Integer> iter = myList.listIterator();
+	
+	while (iter.hasNext()) {
+	     if (3 == iter.next()) {
+		iter.remove();
+	     }
+	}
+     }
 }
