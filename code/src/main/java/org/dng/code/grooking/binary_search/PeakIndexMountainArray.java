@@ -8,7 +8,6 @@ public class PeakIndexMountainArray {
           
           while (low <= high) {
                int mid = (low + high) / 2;
-               System.out.println("Low " + low + " Mid " + mid + " High " + high);
                if (arr[mid] < arr[mid+1]) {
                     low = mid + 1;
                } else {
@@ -19,6 +18,11 @@ public class PeakIndexMountainArray {
      }
      
      public static void main(String[] args) {
-          System.out.println(peakIndexInMountainArray(new int[] {0,10,5,2} ));
+	System.out.println(peakIndexInMountainArray(new int[]{0, 10, 5, 2}));
+ 
+	// 0 5 10 6 2
+	// 0 5 10
+	// 5 10
+	// 10
      }
 }

@@ -47,7 +47,6 @@ public class FindFirstLastPosition {
                          if (nums[targetRight+1] == target) targetRight += 1;
                          else break;
                     }
-                    System.out.println("Left " + targetLeft + " Right " + targetRight + " Mid " + mid);
                     result[0] = targetLeft;
                     result[1] = targetRight;
                     break;
