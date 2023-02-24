@@ -19,30 +19,30 @@ public class PathSumWithTarget {
 	Explanation: The root-to-leaf path with the target sum is shown.
 	
       */
-     
-     public void preOrderSum(TreeNode root, List<Integer> pathNode, List<List<Integer>> pathNodes) {
+
+public static void main(String[] args) {
+
+}
+
+public void preOrderSum(TreeNode root, List<Integer> pathNode, List<List<Integer>> pathNodes) {
 	if (root == null) return;
 	pathNode.add(root.val);
 	// We go to the end of the leaf
 	if (root.left == null && root.right == null) {
-	     pathNodes.add(new ArrayList<>(pathNode));
+		pathNodes.add(new ArrayList<>(pathNode));
 	} else {
-	     preOrderSum(root.left, pathNode, pathNodes);
-	     preOrderSum(root.right, pathNode, pathNodes);
+		preOrderSum(root.left, pathNode, pathNodes);
+		preOrderSum(root.right, pathNode, pathNodes);
 	}
 	// Remove last path ? If we don't remove them, the pathNode keep raising the whole tree
 	pathNode.remove(pathNode.size() - 1);
-     }
-     
-     public boolean hasPathSum(TreeNode root, int targetSum) {
+}
+
+public boolean hasPathSum(TreeNode root, int targetSum) {
 	List<Integer> pathNode = new ArrayList<>();
 	List<List<Integer>> pathNodes = new ArrayList<>();
 	preOrderSum(root, pathNode, pathNodes);
-	return pathNodes.stream().anyMatch( l -> l.parallelStream().reduce(0, Integer::sum) == targetSum);
-     }
-     
-     public static void main(String[] args) {
+	return pathNodes.stream().anyMatch(l -> l.parallelStream().reduce(0, Integer::sum) == targetSum);
+}
 
-     }
-     
 }

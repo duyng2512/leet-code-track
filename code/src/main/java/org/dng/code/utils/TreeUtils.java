@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TreeUtils {
-     
-     //       1
-     //    2     3
-     //  4   5
-     
-     
-     public static void depthFirstSearch(TreeNode root) {
+
+//       1
+//    2     3
+//  4   5
+
+
+public static void depthFirstSearch(TreeNode root) {
 	if (root == null) return;
 	
 	Deque<TreeNode> nodeDeque = new ArrayDeque<>();
@@ -23,24 +23,24 @@ public class TreeUtils {
 	
 	
 	while (!nodeDeque.isEmpty()) {
-	     TreeNode temp = nodeDeque.pollFirst();
-	     
-	     System.out.printf("Value: %d height: %d \n", temp.val, nodeHeight.get(temp));
-	     
-	     if (temp.left != null) {
-		nodeDeque.addFirst(temp.left);
-		nodeHeight.put(temp.left, nodeHeight.get(temp) + 1);
-	     }
-	     if (temp.right != null) {
-		nodeDeque.addFirst(temp.right);
-		nodeHeight.put(temp.right, nodeHeight.get(temp) + 1);
-	     }
+		TreeNode temp = nodeDeque.pollFirst();
+		
+		System.out.printf("Value: %d height: %d \n", temp.val, nodeHeight.get(temp));
+		
+		if (temp.left != null) {
+			nodeDeque.addFirst(temp.left);
+			nodeHeight.put(temp.left, nodeHeight.get(temp) + 1);
+		}
+		if (temp.right != null) {
+			nodeDeque.addFirst(temp.right);
+			nodeHeight.put(temp.right, nodeHeight.get(temp) + 1);
+		}
 	}
 	
-     }
-     
-     
-     public static void main(String[] args) {
+}
+
+
+public static void main(String[] args) {
 //	TreeNode root = new TreeNode(1);
 //	root.left = new TreeNode(2);
 //	root.right = new TreeNode(3);
@@ -53,6 +53,6 @@ public class TreeUtils {
 	byte a = 127;
 	byte b = 127;
 	System.out.println(a + b);
-     }
-     
+}
+
 }

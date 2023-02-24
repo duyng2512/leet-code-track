@@ -36,32 +36,32 @@ public class FruitsIntoBasket {
         Find out the longest length of sub-arrays with at most 2 different numbers?
      */
 
-    public int totalFruit(int[] fruits) {
-        Map<Integer, Integer> frequency = new HashMap<>();
-        int windowStart = 0;
-        int windowEnd;
-        int maxLength = 0;
+public static void main(String[] args) {
+	System.out.println(FruitsIntoBasket.builder().build().totalFruit(new int[]{1, 2, 1}));
+}
 
-        for (windowEnd = 0; windowEnd < fruits.length; windowEnd ++) {
-	   frequency.merge(fruits[windowEnd], 1, Integer::sum);
-    
-	   // When there is more than 2 fruits
-	   while (frequency.size() > 2) {
-	        int leftFruits = fruits[windowStart];
-	        // Decrease until basket only have 2 fruits left
-	        frequency.put(leftFruits, frequency.get(leftFruits) - 1);
-	        if (frequency.get(leftFruits) == 0) {
-		   frequency.remove(leftFruits);
-	        }
-	        windowStart++;
-	   }
-	   maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
-        }
-        return maxLength;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(FruitsIntoBasket.builder().build().totalFruit(new int[] {1, 2, 1}));
-    }
+public int totalFruit(int[] fruits) {
+	Map<Integer, Integer> frequency = new HashMap<>();
+	int windowStart = 0;
+	int windowEnd;
+	int maxLength = 0;
+	
+	for (windowEnd = 0; windowEnd < fruits.length; windowEnd++) {
+		frequency.merge(fruits[windowEnd], 1, Integer::sum);
+		
+		// When there is more than 2 fruits
+		while (frequency.size() > 2) {
+			int leftFruits = fruits[windowStart];
+			// Decrease until basket only have 2 fruits left
+			frequency.put(leftFruits, frequency.get(leftFruits) - 1);
+			if (frequency.get(leftFruits) == 0) {
+				frequency.remove(leftFruits);
+			}
+			windowStart++;
+		}
+		maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
+	}
+	return maxLength;
+}
 
 }

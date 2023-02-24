@@ -2,7 +2,8 @@ package org.dng.code.grooking.binary_tree;
 
 import org.dng.code.utils.TreeNode;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class IsValidBTSTree {
      
@@ -29,57 +30,57 @@ public class IsValidBTSTree {
 	Max 7      | min 5     | val 6
 	Max null   | min 7     | val 8
       */
-     
-     public boolean preOrder(TreeNode root, Integer min, Integer max) {
+
+public boolean preOrder(TreeNode root, Integer min, Integer max) {
 	if (root == null) return true;
 	
-	if ((max != null && root.val > max ) ||  (min != null && root.val < min)) {
-	     return false;
+	if ((max != null && root.val > max) || (min != null && root.val < min)) {
+		return false;
 	}
 	
 	return preOrder(root.left, min, root.val)
-	     && preOrder(root.right, root.val, max);
-     }
-     
-     // Iterative approach
-     public void update(Deque<TreeNode> queue,
-		    Deque<Integer> min,
-		    Deque<Integer> max,
-		    TreeNode node,
-		    Integer minVal,
-		    Integer maxVal
-     ) {
+				   && preOrder(root.right, root.val, max);
+}
+
+// Iterative approach
+public void update(Deque<TreeNode> queue,
+				   Deque<Integer> min,
+				   Deque<Integer> max,
+				   TreeNode node,
+				   Integer minVal,
+				   Integer maxVal
+) {
 	
 	queue.add(node);
 	min.add(minVal);
 	max.add(maxVal);
-     }
-     
-     
-     public boolean iterative(TreeNode root) {
+}
+
+
+public boolean iterative(TreeNode root) {
 	Deque<TreeNode> queue = new LinkedList<>();
 	Deque<Integer> min = new LinkedList<>();
 	Deque<Integer> max = new LinkedList<>();
 	update(queue, min, max, root, null, null);
 	
 	while (!queue.isEmpty()) {
-	     Integer minRange = min.poll();
-	     Integer maxRange = max.poll();
-	     TreeNode node = queue.poll();
-	     if (node != null) {
-		if (maxRange != null && node.val >= maxRange) return false;
-		if (minRange != null && node.val <= minRange) return false;
-		update(queue, min, max, node.left, minRange, node.val);
-		update(queue, min, max, node.right, node.val, maxRange);
-	     }
-	     
+		Integer minRange = min.poll();
+		Integer maxRange = max.poll();
+		TreeNode node = queue.poll();
+		if (node != null) {
+			if (maxRange != null && node.val >= maxRange) return false;
+			if (minRange != null && node.val <= minRange) return false;
+			update(queue, min, max, node.left, minRange, node.val);
+			update(queue, min, max, node.right, node.val, maxRange);
+		}
+		
 	}
 	return true;
-     }
-     
-     
-     public boolean isValidBST(TreeNode root) {
+}
+
+
+public boolean isValidBST(TreeNode root) {
 	return preOrder(root, null, null);
-     }
-     
+}
+
 }

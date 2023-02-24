@@ -30,32 +30,32 @@ public class MaxCpuLoad {
 	Output: 8
 	Explanation: Maximum CPU load will be 8 as all jobs overlap during the time interval [3,4]. `
       */
-     
-     public int getOrder(int[][] tasks) {
+
+public static void main(String[] args) {
+	// [[1,4,3], [2,5,4], [7,9,6]]
+	System.out.println(MaxCpuLoad.builder().build().getOrder(new int[][]{{1, 4, 3}, {2, 5, 4}, {7, 9, 6}}));
+}
+
+public int getOrder(int[][] tasks) {
 	if (tasks.length == 1) return tasks[0][2];
 	
 	Arrays.sort(tasks, Comparator.comparingInt(o -> o[0]));
 	int[] prev = tasks[0];
-     	int currentLoad = tasks[0][2];
+	int currentLoad = tasks[0][2];
 	int maxLoad = tasks[0][2];
 	
 	for (int i = 1; i < tasks.length; i++) {
-	     // Check if previous task is done
-	     if (tasks[i][0] < prev[1]) {
-		currentLoad += tasks[i][2]; // Add more load;
-	     } else {
-		// If done
-		currentLoad -= prev[2]; // Release load
-	     }
-	     maxLoad = Math.max(currentLoad, maxLoad);
-	     prev = tasks[i];
+		// Check if previous task is done
+		if (tasks[i][0] < prev[1]) {
+			currentLoad += tasks[i][2]; // Add more load;
+		} else {
+			// If done
+			currentLoad -= prev[2]; // Release load
+		}
+		maxLoad = Math.max(currentLoad, maxLoad);
+		prev = tasks[i];
 	}
 	return maxLoad;
-     }
-     
-     public static void main(String[] args) {
-	// [[1,4,3], [2,5,4], [7,9,6]]
-	System.out.println(MaxCpuLoad.builder().build().getOrder( new int[][] {{1,4,3}, {2,5,4}, {7,9,6}} ));
-     }
-     
+}
+
 }

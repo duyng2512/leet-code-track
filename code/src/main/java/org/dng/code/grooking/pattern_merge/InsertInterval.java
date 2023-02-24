@@ -27,21 +27,31 @@ public class InsertInterval {
 	Output: [[1,2],[3,10],[12,16]]
 	Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
       */
-     
-     public int[][] insert(int[][] intervals, int[] newInterval) {
+
+public static void main(String[] args) {
+	int[][] result;
+	// result = InsertInterval.builder().build().insert(new int[][] {{1,2},{3,5},{6,7},{8,10},{12,16}}, new int[] {4,8} );
+	result = InsertInterval.builder()
+					 .build()
+					 .insert(new int[][]{{1, 5}}, new int[]{0, 0});
+	
+	System.out.println(Arrays.deepToString(result));
+}
+
+public int[][] insert(int[][] intervals, int[] newInterval) {
 	if (intervals.length == 0) return new int[][]{newInterval};
 	
 	List<int[]> merge = new LinkedList<>();
 	
 	// Add interval to the right spot first
 	if (newInterval[0] <= intervals[0][0])
-	     merge.add(newInterval);
+		merge.add(newInterval);
 	merge.add(intervals[0]);
 	
 	for (int i = 1; i < intervals.length; i++) {
-	     if(intervals[i][0] >= newInterval[0] && intervals[i-1][0] < newInterval[0])
-		merge.add(newInterval);
-	     merge.add(intervals[i]);
+		if (intervals[i][0] >= newInterval[0] && intervals[i - 1][0] < newInterval[0])
+			merge.add(newInterval);
+		merge.add(intervals[i]);
 	}
 	
 	// Interval have not been added
@@ -49,30 +59,20 @@ public class InsertInterval {
 	
 	// Start merging if necessary
 	List<int[]> result = new LinkedList<>();
-	for (int[] interval: merge) {
-	     int lastIndex = result.size() - 1;
-	     
-	     // First element or not overlap
-	     if (result.isEmpty() || result.get(lastIndex)[1] < interval[0]  ) {
-		result.add(interval);
-	     } else {
-		// Start to merge
-		int[] mergeInterval = new int[] {Math.min(interval[0], result.get(lastIndex)[0]),
-		     			Math.max(interval[1], result.get(lastIndex)[1])};
-		result.set(lastIndex, mergeInterval);
-	     }
+	for (int[] interval : merge) {
+		int lastIndex = result.size() - 1;
+		
+		// First element or not overlap
+		if (result.isEmpty() || result.get(lastIndex)[1] < interval[0]) {
+			result.add(interval);
+		} else {
+			// Start to merge
+			int[] mergeInterval = new int[]{Math.min(interval[0], result.get(lastIndex)[0]),
+					Math.max(interval[1], result.get(lastIndex)[1])};
+			result.set(lastIndex, mergeInterval);
+		}
 	}
 	return result.toArray(new int[result.size()][]);
-     }
-     
-     public static void main(String[] args) {
-	int[][] result ;
-	// result = InsertInterval.builder().build().insert(new int[][] {{1,2},{3,5},{6,7},{8,10},{12,16}}, new int[] {4,8} );
-	result = InsertInterval.builder()
-	     		.build()
-	     		.insert(new int[][] {{1,5}}, new int[] {0,0} );
-	
-	System.out.println(Arrays.deepToString(result));
-     }
+}
 
 }

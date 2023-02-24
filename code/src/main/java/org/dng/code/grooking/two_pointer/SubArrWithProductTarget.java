@@ -2,13 +2,9 @@ package org.dng.code.grooking.two_pointer;
 
 import lombok.Builder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import javax.swing.text.TabExpander;
 
 @Builder
 public class SubArrWithProductTarget {
@@ -33,29 +29,29 @@ public class SubArrWithProductTarget {
 
     */
 
-    public int numSubarrayProductLessThanK(int[] nums, int k) {
-        if (k <= 1) return 0;
-    
-        int currentProduct = 1;
-        int startIndex = 0;
-        int result = 0;
-        Set<List<Integer>> resultSet = new HashSet<>();
-    
-        for (int i = 0; i < nums.length; i++) {
-            currentProduct *= nums[i];
-            while (currentProduct >= k && startIndex < nums.length) {
-                currentProduct /= nums[startIndex];
-                startIndex++;
-            }
-            result += i - startIndex + 1;
-        }
-        return result;
-    }
+public static void main(String[] args) {
+	System.out.println(SubArrWithProductTarget.builder()
+							   .build()
+							   .numSubarrayProductLessThanK(new int[]{2, 5, 3, 10}, 30));
+}
 
-    public static void main(String[] args) {
-        System.out.println(SubArrWithProductTarget.builder()
-             .build()
-             .numSubarrayProductLessThanK(new int[] {2, 5, 3, 10}, 30 ));
-    }
+public int numSubarrayProductLessThanK(int[] nums, int k) {
+	if (k <= 1) return 0;
+	
+	int currentProduct = 1;
+	int startIndex = 0;
+	int result = 0;
+	Set<List<Integer>> resultSet = new HashSet<>();
+	
+	for (int i = 0; i < nums.length; i++) {
+		currentProduct *= nums[i];
+		while (currentProduct >= k && startIndex < nums.length) {
+			currentProduct /= nums[startIndex];
+			startIndex++;
+		}
+		result += i - startIndex + 1;
+	}
+	return result;
+}
 
 }

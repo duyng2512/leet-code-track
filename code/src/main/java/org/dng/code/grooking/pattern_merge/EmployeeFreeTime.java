@@ -35,21 +35,15 @@ public class EmployeeFreeTime {
 	Output: [5,7]
 	Explanation: All employess are free between [5,7].
       */
-     
-     static class Interval {
-	public int start;
-	public int end;
-	
-	public Interval() {}
-	
-	public Interval(int _start, int _end) {
-	     start = _start;
-	     end = _end;
-	}
-     };
-     
-     public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
-	PriorityQueue<Interval> priorityQueue = new PriorityQueue<>( (a,b) -> a.start - b.start);
+
+public static void main(String[] args) {
+
+}
+
+;
+
+public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
+	PriorityQueue<Interval> priorityQueue = new PriorityQueue<>((a, b) -> a.start - b.start);
 	List<Interval> result = new ArrayList<>();
 	
 	// Add all to priorityQueue
@@ -57,21 +51,30 @@ public class EmployeeFreeTime {
 	
 	Interval temp = priorityQueue.poll();
 	while (!priorityQueue.isEmpty()) {
-	     Interval next = priorityQueue.peek();
-	     // If there is intersection
-	     if (temp.end < next.start) {
-		result.add(new Interval(temp.end, next.start));
-		temp = priorityQueue.poll();
-	     } else {
-		// We try to get the interval with later end
-		temp = temp.end > next.end ? temp : next;
-		priorityQueue.poll();
-	     }
+		Interval next = priorityQueue.peek();
+		// If there is intersection
+		if (temp.end < next.start) {
+			result.add(new Interval(temp.end, next.start));
+			temp = priorityQueue.poll();
+		} else {
+			// We try to get the interval with later end
+			temp = temp.end > next.end ? temp : next;
+			priorityQueue.poll();
+		}
 	}
 	return result;
-     }
-     
-     public static void main(String[] args) {
+}
+
+static class Interval {
+	public int start;
+	public int end;
 	
-     }
+	public Interval() {
+	}
+	
+	public Interval(int _start, int _end) {
+		start = _start;
+		end = _end;
+	}
+}
 }

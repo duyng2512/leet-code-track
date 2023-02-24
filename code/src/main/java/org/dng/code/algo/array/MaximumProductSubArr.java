@@ -38,32 +38,33 @@ public class MaximumProductSubArr {
 
      */
 
-    public int maxProduct(int[] nums) {
-        if (nums.length == 0) return nums[0];
+public static void main(String[] args) {
+	System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[]{-2, 0, -1}));
+	System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[]{2, 3, -2, 4}));
+	System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[]{9, 4, -1, 2, -8}));
+	System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[]{0, 2}));
+	System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[]{3, -1, 4}));
+	System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[]{2, -5, -2, -4, 3}));
+}
 
-        int iMax = nums[0];
-        int iMin = nums[0];
-        int maxProduct = nums[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] < 0) {
-                int temp = iMax;
-                iMax = iMin;
-                iMin = temp;
-            }
-            iMax = Math.max(nums[i], iMax * nums[i]);
-            iMin = Math.min(nums[i], iMin * nums[i]);
-            maxProduct = Math.max(iMax, maxProduct);
-        }
-        return maxProduct;
-    }
-    public static void main(String[] args) {
-        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {-2, 0, -1} ));
-        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {2, 3, -2, 4} ));
-        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {9, 4, -1, 2, -8} ));
-        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {0, 2} ));
-        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {3,-1, 4} ));
-        System.out.println(MaximumProductSubArr.builder().build().maxProduct(new int[] {2,-5, -2, -4, 3} ));
-    }
+public int maxProduct(int[] nums) {
+	if (nums.length == 0) return nums[0];
+	
+	int iMax = nums[0];
+	int iMin = nums[0];
+	int maxProduct = nums[0];
+	
+	for (int i = 1; i < nums.length; i++) {
+		if (nums[i] < 0) {
+			int temp = iMax;
+			iMax = iMin;
+			iMin = temp;
+		}
+		iMax = Math.max(nums[i], iMax * nums[i]);
+		iMin = Math.min(nums[i], iMin * nums[i]);
+		maxProduct = Math.max(iMax, maxProduct);
+	}
+	return maxProduct;
+}
 
 }

@@ -30,40 +30,40 @@ public class LongestSubArrWithKDistinctElement {
  
      	Desc: maintain a map of frequency character
       */
-     
-     public static void main(String[] args) {
+
+public static void main(String[] args) {
 	System.out.println(LongestSubArrWithKDistinctElement
-	     .builder()
-	     .build()
-	     .lengthOfLongestSubstringKDistinct("cbbebi", 2));
-     }
-     
-     public int lengthOfLongestSubstringKDistinct(String s, int k) {
+							   .builder()
+							   .build()
+							   .lengthOfLongestSubstringKDistinct("cbbebi", 2));
+}
+
+public int lengthOfLongestSubstringKDistinct(String s, int k) {
 	int windowStart = 0, windowEnd;
 	int maxLen = 0;
- 
+	
 	Map<Character, Integer> map = new HashMap<>();
 	
 	for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
-	     map.merge(s.charAt(windowEnd), 1, Integer::sum);
-	     
-	     // When there more than k characters, shrink the map
-	     while (map.size() > k) {
-		map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
+		map.merge(s.charAt(windowEnd), 1, Integer::sum);
 		
-		if (map.get(s.charAt(windowStart)) == 0) {
-		     map.remove(s.charAt(windowStart));
+		// When there more than k characters, shrink the map
+		while (map.size() > k) {
+			map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
+			
+			if (map.get(s.charAt(windowStart)) == 0) {
+				map.remove(s.charAt(windowStart));
+			}
+			
+			windowStart++;
 		}
 		
-		windowStart++;
-	     }
-	     
-	     if (windowEnd - windowStart + 1 > maxLen) {
-		maxLen = windowEnd - windowStart + 1;
-	     }
-	     
+		if (windowEnd - windowStart + 1 > maxLen) {
+			maxLen = windowEnd - windowStart + 1;
+		}
+		
 	}
 	return maxLen;
-     }
-     
+}
+
 }

@@ -2,9 +2,6 @@ package org.dng.code.grooking.depth_first_search;
 
 import org.dng.code.utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DiameterOfBinaryTree {
      
      /*
@@ -29,10 +26,10 @@ public class DiameterOfBinaryTree {
      	 6
      	
       */
-     
-     Integer di = 0;
-     
-     public int preOrderSum(TreeNode root) {
+
+Integer di = 0;
+
+public int preOrderSum(TreeNode root) {
 	if (root == null) return 0;
 	
 	int leftHeight = preOrderSum(root.left);
@@ -41,12 +38,12 @@ public class DiameterOfBinaryTree {
 	di = Math.max(leftHeight + rightHeight, di);
 	
 	return Math.max(leftHeight, rightHeight) + 1;
-     }
-     
-     public int diameterOfBinaryTree(TreeNode root) {
+}
+
+public int diameterOfBinaryTree(TreeNode root) {
 	preOrderSum(root);
 	return di;
 	
-     }
+}
 
 }

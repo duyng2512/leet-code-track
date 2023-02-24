@@ -14,28 +14,28 @@ public class SplitStringBalancedStrings {
 	Return the maximum number of balanced strings you can obtain.
 	
       */
-     
-     static public int balancedStringSplit(String s) {
+
+static public int balancedStringSplit(String s) {
 	
 	int countR = 0;
 	int countL = 0;
 	int total = 0;
 	
 	for (int i = 0; i < s.length(); i++) {
-	     if (s.charAt(i) == 'R') countR++;
-	     else countL++;
-	     
-	     if (countL == countR) {
-		total++;
-		countL++;
-		countR++;
-	     }
+		if (s.charAt(i) == 'R') countR++;
+		else countL++;
+		
+		if (countL == countR) {
+			total++;
+			countL++;
+			countR++;
+		}
 	}
 	return total;
-     }
-     
-     public static void main(String[] args) {
+}
+
+public static void main(String[] args) {
 	System.out.println(balancedStringSplit("RLRRLLRLRL"));
 	System.out.println(balancedStringSplit("RLRRRLLRLL"));
-     }
+}
 }

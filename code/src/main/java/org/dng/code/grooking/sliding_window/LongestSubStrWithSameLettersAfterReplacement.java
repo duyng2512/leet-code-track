@@ -45,27 +45,26 @@ public class LongestSubStrWithSameLettersAfterReplacement {
      	(length of substring - number of times of the maximum occurring character in the substring) <= k
       */
 
-    public int characterReplacement(String s, int k) {
-        	int maxLen = 0, windowStart = 0, windowEnd;
-	int maxCount = 0;
+public static void main(String[] args) {
+	System.out.println(LongestSubStrWithSameLettersAfterReplacement.builder().build().characterReplacement("abccde", 2));
+}
 
+public int characterReplacement(String s, int k) {
+	int maxLen = 0, windowStart = 0, windowEnd;
+	int maxCount = 0;
+	
 	Map<Character, Integer> map = new HashMap<>();
-        	for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
+	for (windowEnd = 0; windowEnd < s.length(); windowEnd++) {
 		map.merge(s.charAt(windowEnd), 1, Integer::sum);
 		maxCount = Math.max(maxCount, map.get(s.charAt(windowEnd)));
-
+		
 		while (windowEnd - windowStart - maxCount + 1 > k) {
-		    map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
-		    windowStart ++;
+			map.put(s.charAt(windowStart), map.get(s.charAt(windowStart)) - 1);
+			windowStart++;
 		}
-	    maxLen = Math.max(windowEnd - windowStart + 1, maxLen);
-        	}
+		maxLen = Math.max(windowEnd - windowStart + 1, maxLen);
+	}
 	return maxLen;
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println(LongestSubStrWithSameLettersAfterReplacement.builder().build().characterReplacement("abccde", 2));
-    }
+}
 
 }

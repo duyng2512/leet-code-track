@@ -1,7 +1,5 @@
 package org.dng.code.daily._2022;
 
-import java.util.Arrays;
-
 public class D3_MinimumAverageDifference {
      
      /*
@@ -33,10 +31,10 @@ public class D3_MinimumAverageDifference {
 	The average difference of index 3 is the minimum average difference so return 3.
 	
       */
-     
-     public static int minimumAverageDifference(int[] nums) {
+
+public static int minimumAverageDifference(int[] nums) {
 	if (nums.length == 1) return 0;
- 
+	
 	long lastTotal = 0;
 	long firstTotal = 0;
 	long currentMinAvg;
@@ -46,19 +44,19 @@ public class D3_MinimumAverageDifference {
 	int minIdx = 0;
 	long len = nums.length;
 	for (int i = 0; i < nums.length; i++) {
-	     firstTotal += nums[i];
-	     lastTotal = total - firstTotal;
-	     currentMinAvg = Math.abs(firstTotal/(i+1) -  (len-i==1 ? 0 : lastTotal/(len-i-1)));
-	     if (currentMinAvg < minAvg) {
-		minAvg = currentMinAvg;
-		minIdx = i;
-	     }
+		firstTotal += nums[i];
+		lastTotal = total - firstTotal;
+		currentMinAvg = Math.abs(firstTotal / (i + 1) - (len - i == 1 ? 0 : lastTotal / (len - i - 1)));
+		if (currentMinAvg < minAvg) {
+			minAvg = currentMinAvg;
+			minIdx = i;
+		}
 	}
 	return minIdx;
-     }
-     
-     public static void main(String[] args) {
-	System.out.println(minimumAverageDifference(new int[] {4, 2, 0}));
-     }
-     
+}
+
+public static void main(String[] args) {
+	System.out.println(minimumAverageDifference(new int[]{4, 2, 0}));
+}
+
 }

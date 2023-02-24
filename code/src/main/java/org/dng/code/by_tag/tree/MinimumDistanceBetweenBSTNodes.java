@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MinimumDistanceBetweenBSTNodes {
-     
-     /**
-      * 1
-      * 2 3
-      */
-     List<Integer> array = new ArrayList<>();
-     
-     public void traversal(TreeNode treeNode) {
+
+/**
+ * 1
+ * 2 3
+ */
+List<Integer> array = new ArrayList<>();
+
+public void traversal(TreeNode treeNode) {
 	if (treeNode == null) {
-	     return;
+		return;
 	}
 	
 	traversal(treeNode.left);
@@ -23,18 +23,18 @@ public class MinimumDistanceBetweenBSTNodes {
 	array.add(treeNode.val);
 	
 	traversal(treeNode.right);
-     }
-     
-     public int minDiffInBST(TreeNode root) {
+}
+
+public int minDiffInBST(TreeNode root) {
 	traversal(root);
 	int min = Integer.MAX_VALUE;
 	
 	
 	for (int i = 1; i < array.size(); i++) {
-	     min = Math.min(min, array.get(i) - array.get(i - 1));
+		min = Math.min(min, array.get(i) - array.get(i - 1));
 	}
 	
 	return min;
-     }
-     
+}
+
 }

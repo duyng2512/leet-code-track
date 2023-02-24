@@ -34,27 +34,28 @@ public class SmallestSubArrGivenSum {
      equal to '8' are [3, 4, 1] or [1, 1, 6].
      
       */
-     
-     public int minSubArrayLen(int target, int[] nums) {
+
+public static void main(String[] args) {
+	System.out.println(SmallestSubArrGivenSum.builder().build().minSubArrayLen(7, new int[]{2, 1, 5, 2, 3, 2}));
+	System.out.println(SmallestSubArrGivenSum.builder().build().minSubArrayLen(7, new int[]{2, 1, 5, 2, 8}));
+}
+
+public int minSubArrayLen(int target, int[] nums) {
 	int start = 0, end;
 	int total = 0, minLen = Integer.MAX_VALUE;
 	
 	for (end = 0; end < nums.length; end++) {
-	     total += nums[end];
-	     
-	     while (total >= target){
-		minLen = Math.min(minLen, end - start + 1);
-		total -= nums[start];
-		start++;
-	     }
-	};
- 
+		total += nums[end];
+		
+		while (total >= target) {
+			minLen = Math.min(minLen, end - start + 1);
+			total -= nums[start];
+			start++;
+		}
+	}
+	;
+	
 	return minLen == Integer.MAX_VALUE ? 0 : minLen;
-     }
-     
-     public static void main(String[] args) {
-	System.out.println(SmallestSubArrGivenSum.builder().build().minSubArrayLen(7, new int[] {2, 1, 5, 2, 3, 2} ));
-	System.out.println(SmallestSubArrGivenSum.builder().build().minSubArrayLen(7, new int[] {2, 1, 5, 2, 8} ));
-     }
-     
+}
+
 }

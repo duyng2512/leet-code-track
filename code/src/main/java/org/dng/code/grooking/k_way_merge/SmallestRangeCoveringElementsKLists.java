@@ -25,9 +25,9 @@ public class SmallestRangeCoveringElementsKLists {
 	Output: [1,1]
      
       */
-     
-     public int[] smallestRange(List<List<Integer>> nums) {
+
+public int[] smallestRange(List<List<Integer>> nums) {
 	return null;
-     }
-     
+}
+
 }

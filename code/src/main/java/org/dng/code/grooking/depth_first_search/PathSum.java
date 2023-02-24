@@ -20,36 +20,8 @@ public class PathSum {
 	5 + 8 + 4 + 5 = 22
 	
       */
-     
-     public void preOrder(TreeNode root) {
-	if (root == null) return;
-	System.out.println(root.val);
-	preOrder(root.left);
-	preOrder(root.right);
-     }
-     
-     public void preOrderSum(TreeNode root, List<Integer> pathNode, List<List<Integer>> pathNodes, int remainSum) {
-	if (root == null) return;
-	pathNode.add(root.val);
-	if (remainSum == root.val && root.left == null && root.right == null) {
-	     pathNodes.add(new ArrayList<>(pathNode));
-	} else {
-	     preOrderSum(root.left, pathNode, pathNodes, remainSum - root.val);
-	     preOrderSum(root.right, pathNode, pathNodes, remainSum - root.val);
-	}
-	
-	// Remove last path ? If we don't remove them, the pathNode keep raising the whole tree
-	pathNode.remove(pathNode.size() - 1);
-     }
-     
-     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-	List<List<Integer>> pathsList = new ArrayList<>();
-	List<Integer> pathNodes = new ArrayList<>();
-	preOrderSum(root, pathNodes, pathsList, targetSum);
-	return pathsList;
-     }
-     
-     public static void main(String[] args) {
+
+public static void main(String[] args) {
 	/*
 	 	  1
 		 2 3
@@ -69,6 +41,34 @@ public class PathSum {
 	
 	List<List<Integer>> res = sum.pathSum(root, 7);
 	System.out.println(res);
-     }
-     
+}
+
+public void preOrder(TreeNode root) {
+	if (root == null) return;
+	System.out.println(root.val);
+	preOrder(root.left);
+	preOrder(root.right);
+}
+
+public void preOrderSum(TreeNode root, List<Integer> pathNode, List<List<Integer>> pathNodes, int remainSum) {
+	if (root == null) return;
+	pathNode.add(root.val);
+	if (remainSum == root.val && root.left == null && root.right == null) {
+		pathNodes.add(new ArrayList<>(pathNode));
+	} else {
+		preOrderSum(root.left, pathNode, pathNodes, remainSum - root.val);
+		preOrderSum(root.right, pathNode, pathNodes, remainSum - root.val);
+	}
+	
+	// Remove last path ? If we don't remove them, the pathNode keep raising the whole tree
+	pathNode.remove(pathNode.size() - 1);
+}
+
+public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+	List<List<Integer>> pathsList = new ArrayList<>();
+	List<Integer> pathNodes = new ArrayList<>();
+	preOrderSum(root, pathNodes, pathsList, targetSum);
+	return pathsList;
+}
+
 }

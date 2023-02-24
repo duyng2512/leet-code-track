@@ -6,11 +6,11 @@ import java.util.Arrays;
 
 @Builder
 public class NumberOfGoodPairs {
-     
-     // 0, 0 => 2*1 = 1
-     // 0, 0, 0 => 3 3*2 / 2
-     // 0, 0, 0, 0 => 6 4*3 = 6
-     // 1, 2, 3, 4, 5 => 10 5*4 / 2 = 10
+
+// 0, 0 => 2*1 = 1
+// 0, 0, 0 => 3 3*2 / 2
+// 0, 0, 0, 0 => 6 4*3 = 6
+// 1, 2, 3, 4, 5 => 10 5*4 / 2 = 10
      
      /*
 	Given an array of integers nums, return the number of good pairs.
@@ -32,31 +32,31 @@ public class NumberOfGoodPairs {
 	Input: nums = [1,2,3]
 	Output: 0
       */
-     
-     public int numIdenticalPairs(int[] nums) {
+
+public static void main(String[] args) {
+	int result = NumberOfGoodPairs.builder().build().numIdenticalPairs(new int[]{1, 2, 3, 1, 1, 3});
+	System.out.println(result);
+	result = NumberOfGoodPairs.builder().build().numIdenticalPairs(new int[]{1, 1, 1, 1});
+	System.out.println(result);
+}
+
+public int numIdenticalPairs(int[] nums) {
 	if (nums.length == 1) return 0;
 	Arrays.sort(nums);
 	int prev = nums[0];
 	int count = 1;
 	int total = 0;
 	for (int i = 1; i < nums.length; i++) {
-	     if (nums[i] == prev) {
-		count++;
-	     } else {
-		prev = nums[i];
-		total += count*(count-1)/2;
-		count = 1;
-	     }
+		if (nums[i] == prev) {
+			count++;
+		} else {
+			prev = nums[i];
+			total += count * (count - 1) / 2;
+			count = 1;
+		}
 	}
-	total += count*(count-1)/2;
+	total += count * (count - 1) / 2;
 	return total;
-     }
-     
-     public static void main(String[] args) {
-	int result = NumberOfGoodPairs.builder().build().numIdenticalPairs(new int[] {1,2,3,1,1,3});
-	System.out.println(result);
-	result = NumberOfGoodPairs.builder().build().numIdenticalPairs(new int[] {1,1,1,1});
-	System.out.println(result);
-     }
-     
+}
+
 }

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class TwoSumTest {
 
-    @Test
-    public void twoSum() {
-    }
+@Test
+public void twoSum() {
+}
 }

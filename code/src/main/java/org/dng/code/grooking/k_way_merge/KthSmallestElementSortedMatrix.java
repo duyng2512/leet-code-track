@@ -21,28 +21,28 @@ public class KthSmallestElementSortedMatrix {
 	Output: 7
 	Explanation: The 5th smallest number in the matrix is 7.
       */
-     
-     public static int kthSmallest(int[][] matrix, int k) {
+
+public static int kthSmallest(int[][] matrix, int k) {
 	PriorityQueue<Integer> queue = new PriorityQueue<>();
 	for (int[] ints : matrix) {
-	     for (int anInt : ints) {
-		queue.add(anInt);
-	     }
+		for (int anInt : ints) {
+			queue.add(anInt);
+		}
 	}
-	for (int i = 0; i < k-1; i++) {
-	     queue.poll();
+	for (int i = 0; i < k - 1; i++) {
+		queue.poll();
 	}
 	return queue.poll();
-     }
-     
-     public static void main(String[] args) {
-	int[][] arr1 = new int[][] {{1,5,9},
-			     {10,11,13},
-			     {12,13,15}};
-     
+}
+
+public static void main(String[] args) {
+	int[][] arr1 = new int[][]{{1, 5, 9},
+			{10, 11, 13},
+			{12, 13, 15}};
+	
 	System.out.println(kthSmallest(arr1, 8));
- 
-	System.out.println(kthSmallest(new int[][] {{-5}} , 1));
-     }
-     
+	
+	System.out.println(kthSmallest(new int[][]{{-5}}, 1));
+}
+
 }

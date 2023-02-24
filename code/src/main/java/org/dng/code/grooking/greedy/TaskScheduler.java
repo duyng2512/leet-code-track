@@ -8,19 +8,19 @@ import java.util.PriorityQueue;
  * @author duyntc 02/2023
  */
 public class TaskScheduler {
-     
-     
-     /**
-      * 1. Sorted Task by frequency
-      * 2. Construct idle map with the largest count
-      * 3. Fill up by the 2nd largest count
-      * 4. So on ...
-      *
-      * @param tasks
-      * @param n
-      * @return
-      */
-     static public int leastInterval(char[] tasks, int n) {
+
+
+/**
+ * 1. Sorted Task by frequency
+ * 2. Construct idle map with the largest count
+ * 3. Fill up by the 2nd largest count
+ * 4. So on ...
+ *
+ * @param tasks
+ * @param n
+ * @return
+ */
+static public int leastInterval(char[] tasks, int n) {
 	/**
 	 * A B A A B C A A
 	 * A: 5
@@ -34,7 +34,7 @@ public class TaskScheduler {
 	 */
 	Map<Character, Integer> map = new HashMap<>();
 	for (char task : tasks) {
-	     map.compute(task, (k, v) -> map.get(k) == null ? 1 : map.get(k) + 1);
+		map.compute(task, (k, v) -> map.get(k) == null ? 1 : map.get(k) + 1);
 	}
 	PriorityQueue<Map.Entry<Character, Integer>> queue = new PriorityQueue<>((n1, n2) -> n2.getValue() - n1.getValue());
 	queue.addAll(map.entrySet());
@@ -45,23 +45,23 @@ public class TaskScheduler {
 	
 	// Now minimize idle time
 	while (!queue.isEmpty()) {
-	     int currentFreq = queue.poll().getValue();
-	     if (currentFreq == highestFreq) {
-		// A _ _ A _ _ A
-		// A B _ A B _ A B  --> This case
-		idleTime -= highestFreq - 1;
-	     } else {
-		idleTime -= currentFreq;
-	     }
+		int currentFreq = queue.poll().getValue();
+		if (currentFreq == highestFreq) {
+			// A _ _ A _ _ A
+			// A B _ A B _ A B  --> This case
+			idleTime -= highestFreq - 1;
+		} else {
+			idleTime -= currentFreq;
+		}
 	}
 	idleTime = Math.max(0, idleTime);
 	
 	return idleTime + tasks.length;
-     }
-     
-     
-     public static void main(String[] args) {
+}
+
+
+public static void main(String[] args) {
 	char[] task = new char[]{'A', 'A', 'A', 'B', 'B', 'B'};
 	System.out.println(leastInterval(task, 2));
-     }
+}
 }

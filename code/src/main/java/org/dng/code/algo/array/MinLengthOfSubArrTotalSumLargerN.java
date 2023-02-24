@@ -14,49 +14,49 @@ public class MinLengthOfSubArrTotalSumLargerN {
         the problem constraint.
      */
 
-    public int minLengthBruteForce(int[] nums, int target) {
-        int minLength = Integer.MAX_VALUE;
-        int[] sumArr = new int[nums.length];
-        sumArr[0] = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            sumArr[i] = sumArr[i-1] + nums[i];
-        }
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i; j < nums.length; j++) {
-                int sum = sumArr[j] - sumArr[i] + nums[i];
-                if (sum >= target) {
-                    minLength = Math.min(minLength, (j - i + 1));
-                    break;
-                }
-            }
-        }
-        return minLength;
-    }
+public static MinLengthOfSubArrTotalSumLargerN getInstance() {
+	return new MinLengthOfSubArrTotalSumLargerN();
+}
 
-    public int minLength(int[] nums, int target) {
-        int minLength = Integer.MAX_VALUE;
-        int sumArr = 0;
-        int j = 0;
+public static void main(String[] args) {
+	System.out.println(MinLengthOfSubArrTotalSumLargerN.getInstance().minLength(new int[]{2, 3, 1, 2, 4, 3}, 7));
+	System.out.println(MinLengthOfSubArrTotalSumLargerN.getInstance().minLength(new int[]{1, 4, 4}, 7));
+	System.out.println(MinLengthOfSubArrTotalSumLargerN.getInstance().minLength(new int[]{1, 4, 4}, 11));
+}
 
-        for (int i = 0; i < nums.length; i++) {
-            sumArr += nums[i];
-            while (sumArr >= target) {
-                minLength = Math.min(minLength, i - j + 1);
-                sumArr -= nums[j];
-                j++;
-            }
-        }
-        return minLength == Integer.MAX_VALUE ? 0 : minLength;
-    }
+public int minLengthBruteForce(int[] nums, int target) {
+	int minLength = Integer.MAX_VALUE;
+	int[] sumArr = new int[nums.length];
+	sumArr[0] = nums[0];
+	for (int i = 1; i < nums.length; i++) {
+		sumArr[i] = sumArr[i - 1] + nums[i];
+	}
+	for (int i = 0; i < nums.length; i++) {
+		for (int j = i; j < nums.length; j++) {
+			int sum = sumArr[j] - sumArr[i] + nums[i];
+			if (sum >= target) {
+				minLength = Math.min(minLength, (j - i + 1));
+				break;
+			}
+		}
+	}
+	return minLength;
+}
 
-    public static MinLengthOfSubArrTotalSumLargerN getInstance() {
-        return  new MinLengthOfSubArrTotalSumLargerN();
-    }
-
-    public static void main(String[] args) {
-        System.out.println( MinLengthOfSubArrTotalSumLargerN.getInstance().minLength(new int[] {2,3,1,2,4,3} , 7));
-        System.out.println( MinLengthOfSubArrTotalSumLargerN.getInstance().minLength(new int[] {1,4,4} , 7));
-        System.out.println( MinLengthOfSubArrTotalSumLargerN.getInstance().minLength(new int[] {1,4,4} , 11));
-    }
+public int minLength(int[] nums, int target) {
+	int minLength = Integer.MAX_VALUE;
+	int sumArr = 0;
+	int j = 0;
+	
+	for (int i = 0; i < nums.length; i++) {
+		sumArr += nums[i];
+		while (sumArr >= target) {
+			minLength = Math.min(minLength, i - j + 1);
+			sumArr -= nums[j];
+			j++;
+		}
+	}
+	return minLength == Integer.MAX_VALUE ? 0 : minLength;
+}
 
 }

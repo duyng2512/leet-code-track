@@ -27,31 +27,31 @@ public class SumRootLeafNumbers {
           Therefore, sum = 12 + 13 = 25.
           
       */
-     
-     
-     Integer result = 0;
-     
-     void preOrder(TreeNode root, List<Integer> pathNode) {
-          if (root == null) return;
-     
-          pathNode.add(root.val);
-          
-          if (root.right == null && root.left == null) {
-               StringBuilder s = new StringBuilder();
-               for (Integer val: pathNode)
-                    s.append(val);
-               result += Integer.parseInt(s.toString());
-          } else {
-               preOrder(root.right , pathNode);
-               preOrder(root.left , pathNode);
-          }
-          pathNode.remove(pathNode.size() - 1);
-     }
-     
-     
-     public int sumNumbers(TreeNode root) {
-          preOrder(root, new ArrayList<>());
-          return result;
-     }
-     
+
+
+Integer result = 0;
+
+void preOrder(TreeNode root, List<Integer> pathNode) {
+	if (root == null) return;
+	
+	pathNode.add(root.val);
+	
+	if (root.right == null && root.left == null) {
+		StringBuilder s = new StringBuilder();
+		for (Integer val : pathNode)
+			s.append(val);
+		result += Integer.parseInt(s.toString());
+	} else {
+		preOrder(root.right, pathNode);
+		preOrder(root.left, pathNode);
+	}
+	pathNode.remove(pathNode.size() - 1);
+}
+
+
+public int sumNumbers(TreeNode root) {
+	preOrder(root, new ArrayList<>());
+	return result;
+}
+
 }

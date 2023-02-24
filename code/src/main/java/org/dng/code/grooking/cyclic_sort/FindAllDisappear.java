@@ -22,28 +22,28 @@ public class FindAllDisappear {
 	Output: [3]
     
     */
-     
-     // Cyclic sort
-     public void cyclicSort(int[] arr) {
-          int i = 0;
-          while (i < arr.length) {
-               int correctPos = arr[i] - 1;
-               if (arr[i] != arr[correctPos]) MiscUtils.swap(arr, i, correctPos);
-               else i++;
-          }
-     }
-     
-     public List<Integer> findDisappearedNumbers(int[] nums) {
-          List<Integer> result = new ArrayList<>();
-          cyclicSort(nums);
-          System.out.println(Arrays.toString(nums));
-          for (int i = 0; i < nums.length; i++)
-               if (i != nums[i] -1) result.add(i+1);
-          return result;
-     }
-     
-     public static void main(String[] args) {
-          List<Integer> result = FindAllDisappear.builder().build().findDisappearedNumbers(new int[] {4,3,2,7,8,2,3,1} );
-          System.out.println(result);
-     }
+
+public static void main(String[] args) {
+	List<Integer> result = FindAllDisappear.builder().build().findDisappearedNumbers(new int[]{4, 3, 2, 7, 8, 2, 3, 1});
+	System.out.println(result);
+}
+
+// Cyclic sort
+public void cyclicSort(int[] arr) {
+	int i = 0;
+	while (i < arr.length) {
+		int correctPos = arr[i] - 1;
+		if (arr[i] != arr[correctPos]) MiscUtils.swap(arr, i, correctPos);
+		else i++;
+	}
+}
+
+public List<Integer> findDisappearedNumbers(int[] nums) {
+	List<Integer> result = new ArrayList<>();
+	cyclicSort(nums);
+	System.out.println(Arrays.toString(nums));
+	for (int i = 0; i < nums.length; i++)
+		if (i != nums[i] - 1) result.add(i + 1);
+	return result;
+}
 }

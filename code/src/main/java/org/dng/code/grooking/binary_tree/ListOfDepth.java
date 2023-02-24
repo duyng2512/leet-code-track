@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Queue;
 
 public class ListOfDepth {
-     
-     public List<List<Integer>> levelOrder(TreeNode root) {
+
+public List<List<Integer>> levelOrder(TreeNode root) {
 	if (root == null) return new ArrayList<>();
 	
 	Queue<TreeNode> queue = new ArrayDeque<>();
@@ -18,20 +18,20 @@ public class ListOfDepth {
 	queue.add(root);
 	
 	while (!queue.isEmpty()) {
-	     // New Level
-	     if (level == result.size()) result.add(new ArrayList<>());
-	     
-	     int heightLen = queue.size();
-	     
-	     for (int i = 0; i < heightLen; i++) {
-		TreeNode temp = queue.remove();
-		if (temp.left != null) queue.add(temp.left);
-		if (temp.right != null) queue.add(temp.right);
-		result.get(level).add(temp.val);
-	     }
-	     level++;
+		// New Level
+		if (level == result.size()) result.add(new ArrayList<>());
+		
+		int heightLen = queue.size();
+		
+		for (int i = 0; i < heightLen; i++) {
+			TreeNode temp = queue.remove();
+			if (temp.left != null) queue.add(temp.left);
+			if (temp.right != null) queue.add(temp.right);
+			result.get(level).add(temp.val);
+		}
+		level++;
 	}
 	return result;
-     }
-     
+}
+
 }

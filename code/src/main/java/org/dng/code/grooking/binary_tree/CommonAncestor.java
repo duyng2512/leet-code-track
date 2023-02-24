@@ -16,10 +16,10 @@ public class CommonAncestor {
      	From q check the node that is belonged to set of ancestor
      	
       */
-     
-     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 	Deque<TreeNode> queue = new ArrayDeque<>();
- 
+	
 	/**
 	 * Intuitive: Building a map of Node and its ancestor
 	 *
@@ -32,32 +32,32 @@ public class CommonAncestor {
 	map.put(root, null);
 	
 	while (!map.containsKey(p) || !map.containsKey(q)) {
-	     
-	     TreeNode temp = queue.poll();
-	     
-	     if (temp.left != null) {
-		map.put(temp.left, temp);
-		queue.add(temp.left);
-	     }
-	     
-	     if (temp.right != null) {
-		map.put(temp.right, temp);
-		queue.add(temp.right);
-	     }
+		
+		TreeNode temp = queue.poll();
+		
+		if (temp.left != null) {
+			map.put(temp.left, temp);
+			queue.add(temp.left);
+		}
+		
+		if (temp.right != null) {
+			map.put(temp.right, temp);
+			queue.add(temp.right);
+		}
 	}
 	
 	Set<TreeNode> ancestor = new HashSet<>();
 	
 	//  Build a path of ancestor of P
 	while (p != null) {
-	     ancestor.add(p);
-	     p = map.get(p);
+		ancestor.add(p);
+		p = map.get(p);
 	}
 	
 	while (!ancestor.contains(q)) {
-	     q = map.get(q);
+		q = map.get(q);
 	}
 	return q;
-     }
-     
+}
+
 }

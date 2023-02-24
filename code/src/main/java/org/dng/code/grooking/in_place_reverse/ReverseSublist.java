@@ -4,8 +4,6 @@ import lombok.Builder;
 import org.dng.code.utils.ListNode;
 import org.dng.code.utils.ListUtils;
 
-import java.util.List;
-
 @Builder
 public class ReverseSublist {
      
@@ -22,41 +20,41 @@ public class ReverseSublist {
 	Input: head = [5], left = 1, right = 1
 	Output: [5]
       */
-     
-     public ListNode reverseBetween(ListNode head, int left, int right) {
+
+public static void main(String[] args) {
+	System.out.println("-------");
+	ListNode head = ListUtils.buildList(new int[]{1, 2, 3, 4, 5});
+	ListNode result = ReverseSublist.builder().build().reverseBetween(head, 2, 3);
+	ListUtils.print(result);
+}
+
+public ListNode reverseBetween(ListNode head, int left, int right) {
 	if (head == null || head.next == null) return head;
 	
 	ListNode prev = null;
 	ListNode cur = head;
 	while (left > 1) {
-	     prev=cur;
-	     cur=cur.next;
-	     left--;
-	     right--;
+		prev = cur;
+		cur = cur.next;
+		left--;
+		right--;
 	}
 	// Anchor the end and the start
 	ListNode con = prev;
 	ListNode tail = cur;
 	
 	while (right > 0) {
-	     ListNode temp = cur.next;
-	     cur.next = prev;
-	     prev = cur;
-	     cur = temp;
-	     right--;
+		ListNode temp = cur.next;
+		cur.next = prev;
+		prev = cur;
+		cur = temp;
+		right--;
 	}
 	
 	if (con != null) con.next = prev;
 	else head = prev;
 	tail.next = cur;
 	return head;
-     }
-     
-     public static void main(String[] args) {
-	System.out.println("-------");
-	ListNode head = ListUtils.buildList(new int[] {1,2,3,4,5});
-	ListNode result = ReverseSublist.builder().build().reverseBetween(head, 2, 3);
-	ListUtils.print(result);
-     }
-     
+}
+
 }

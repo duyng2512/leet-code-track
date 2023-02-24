@@ -33,38 +33,38 @@ public class ConflictAppointment {
 	both of these appointments.
 	
       */
-     
-     public int eraseOverlapIntervals(int[][] intervals) {
+
+public static void main(String[] args) {
+
+}
+
+public int eraseOverlapIntervals(int[][] intervals) {
 	if (intervals.length == 1) return 0;
 	
 	MergeUtils.sortByFirstKey(intervals);
 	int removeCount = 0;
 	int[] prev = intervals[0];
- 
+	
 	for (int i = 1; i < intervals.length; i++) {
-	     // If there is no overlap
-	     if (prev[1] <= intervals[i][0]) {
-		prev = intervals[i];
-		continue;
-	     }
-	     
-	     // If there is overlap and the current is smaller than prev both end
-	     if (prev[1] >= intervals[i][1]) {
-		prev = intervals[i];
-		removeCount ++;
-		continue;
-	     }
-	     
-	     // If there is overlap and the tail of curr is behind prev
-	     if (prev[1] <= intervals[i][1]) {
-		removeCount ++;
-	     }
+		// If there is no overlap
+		if (prev[1] <= intervals[i][0]) {
+			prev = intervals[i];
+			continue;
+		}
+		
+		// If there is overlap and the current is smaller than prev both end
+		if (prev[1] >= intervals[i][1]) {
+			prev = intervals[i];
+			removeCount++;
+			continue;
+		}
+		
+		// If there is overlap and the tail of curr is behind prev
+		if (prev[1] <= intervals[i][1]) {
+			removeCount++;
+		}
 	}
 	return removeCount;
-     }
-     
-     public static void main(String[] args) {
-	
-     }
-     
+}
+
 }

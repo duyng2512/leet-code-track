@@ -3,8 +3,6 @@ package org.dng.code.grooking.breath_first_search;
 import org.dng.code.utils.TreeNode;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Queue;
 
 
@@ -27,27 +25,27 @@ public class MinimumDepth {
 	Output: 5
 
       */
-     
-     public int minDepth(TreeNode root) {
+
+public int minDepth(TreeNode root) {
 	if (root == null) return 0;
- 
+	
 	Queue<TreeNode> queue = new ArrayDeque<>();
 	queue.add(root);
 	int level = 1;
 	while (!queue.isEmpty()) {
-	     int levelLength = queue.size();
-	     for (int i = 0; i < levelLength; i++) {
-		TreeNode remove = queue.remove();
-		
-		if (remove.left == null && remove.right == null)
-		     return level;
-		
-		if (remove.left != null) queue.add(remove.left);
-		if (remove.right != null) queue.add(remove.right);
-	     }
-	     level++;
+		int levelLength = queue.size();
+		for (int i = 0; i < levelLength; i++) {
+			TreeNode remove = queue.remove();
+			
+			if (remove.left == null && remove.right == null)
+				return level;
+			
+			if (remove.left != null) queue.add(remove.left);
+			if (remove.right != null) queue.add(remove.right);
+		}
+		level++;
 	}
 	return level;
-     }
-     
+}
+
 }

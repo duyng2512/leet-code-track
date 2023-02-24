@@ -34,57 +34,56 @@ public class CyclicSort {
 	Input: [1, 5, 6, 4, 3, 2]
 	Output: [1, 2, 3, 4, 5, 6]
       */
-     
-     // 4, 5, 6, 1, 3
-     
-     // 6, 5, 4, 1, 3
-     
-     public void cyclicSort(int[] arr) {
+
+// 4, 5, 6, 1, 3
+
+// 6, 5, 4, 1, 3
+
+public static void swap(int[] arr, int currIdx, int correctIdx) {
+	int temp = arr[currIdx];
+	arr[currIdx] = arr[correctIdx];
+	arr[correctIdx] = temp;
+}
+
+public static void main(String[] args) {
+	CyclicSort cyclicSort = CyclicSort.builder().build();
+	cyclicSort.cyclicSortV2(new int[]{4, 5, 6, 2, 1, 3});
+}
+
+public void cyclicSort(int[] arr) {
 	int n = arr.length;
 	int i = 0;
 	int item = arr[i];
 	while (i < n) {
-	     int count = 0;
-	     int j = 0;
-	     while (j < n) {
-		if (item > arr[j]) count++;
-		j++;
-	     }
-	     
-	     if (count == i) {
-		i++;
-	     } else {
-		int temp = arr[count];
-		swap(arr, i, count);
-		item = temp;
-	     }
+		int count = 0;
+		int j = 0;
+		while (j < n) {
+			if (item > arr[j]) count++;
+			j++;
+		}
+		
+		if (count == i) {
+			i++;
+		} else {
+			int temp = arr[count];
+			swap(arr, i, count);
+			item = temp;
+		}
 	}
 	
 	System.out.println("After sort :  ");
 	System.out.print(Arrays.toString(arr));
-     }
-     
-     public void cyclicSortV2(int[] arr) {
+}
+
+public void cyclicSortV2(int[] arr) {
 	int i = 0;
 	while (i < arr.length) {
-	     int correctPos = arr[i]-1;
-	     if (arr[i] != arr[correctPos]) swap(arr, i, correctPos);
-	     else i++;
+		int correctPos = arr[i] - 1;
+		if (arr[i] != arr[correctPos]) swap(arr, i, correctPos);
+		else i++;
 	}
 	System.out.println("After sort :  ");
 	System.out.print(Arrays.toString(arr));
-     }
-     
-     
-     public static void swap(int[] arr, int currIdx, int correctIdx) {
-	int temp = arr[currIdx];
-	arr[currIdx] = arr[correctIdx];
-	arr[correctIdx] = temp;
-     }
-     
-     public static void main(String[] args) {
-	CyclicSort cyclicSort = CyclicSort.builder().build();
-	cyclicSort.cyclicSortV2(new int[] {4, 5, 6, 2, 1, 3});
-     }
-     
+}
+
 }

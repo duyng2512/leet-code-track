@@ -27,30 +27,30 @@ public class FrequencySort {
 	Note that "cacaca" is incorrect, as the same characters must be together.
      
       */
-     
-     public static String frequencySort(String s) {
+
+public static String frequencySort(String s) {
 	HashMap<Character, Integer> map = new HashMap<>();
 	for (int i = 0; i < s.length(); i++) {
-	     map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+		map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
 	}
 	System.out.println(map);
 	StringBuilder builder = new StringBuilder();
 	Comparator<Map.Entry<Character, Integer>> comparator = (o1, o2) -> o2.getValue().compareTo(o1.getValue());
 	
 	map.entrySet()
-	     .stream()
-	     .sorted(comparator)
-	     .forEach(entry -> {
-		Character character = entry.getKey();
-		builder.append(String.valueOf(character).repeat(Math.max(0, entry.getValue())));
-	     });
+			.stream()
+			.sorted(comparator)
+			.forEach(entry -> {
+				Character character = entry.getKey();
+				builder.append(String.valueOf(character).repeat(Math.max(0, entry.getValue())));
+			});
 	return builder.toString();
-     }
-     
-     public static void main(String[] args) {
+}
+
+public static void main(String[] args) {
 	System.out.println(frequencySort("tree"));
 	System.out.println(frequencySort("cccaaa"));
 	System.out.println(frequencySort("Aabb"));
-     }
-     
+}
+
 }

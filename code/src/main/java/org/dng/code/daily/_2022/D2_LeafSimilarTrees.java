@@ -22,30 +22,8 @@ public class D2_LeafSimilarTrees {
 	
 	Link: https://leetcode.com/problems/leaf-similar-trees/description/
       */
-     
-     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-	List<Integer> list1 = new ArrayList<>();
-	getLeafs(root1, list1);
- 
-	List<Integer> list2 = new ArrayList<>();
-	getLeafs(root2, list2);
-	
-	if (list1.size() != list2.size()) return false;
-	
-	for (int i = 0; i < list1.size(); i++) {
-	     if (!list1.get(i).equals(list2.get(i))) return false;
-	}
-	return true;
-     }
-     
-     public void getLeafs(TreeNode root, List<Integer> list) {
-	if (root == null) return;
-	if (root.left == null && root.right == null) list.add(root.val);
-	getLeafs(root.left, list);
-	getLeafs(root.right, list);
-     }
-     
-     public static void main(String[] args) {
+
+public static void main(String[] args) {
 	TreeNode root_2 = new TreeNode(1);
 	root_2.right = new TreeNode(2);
 	root_2.right.left = new TreeNode(5);
@@ -56,6 +34,28 @@ public class D2_LeafSimilarTrees {
 	D2_LeafSimilarTrees trees = new D2_LeafSimilarTrees();
 	trees.getLeafs(root_2, list);
 	System.out.println(list);
-     }
-     
+}
+
+public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+	List<Integer> list1 = new ArrayList<>();
+	getLeafs(root1, list1);
+	
+	List<Integer> list2 = new ArrayList<>();
+	getLeafs(root2, list2);
+	
+	if (list1.size() != list2.size()) return false;
+	
+	for (int i = 0; i < list1.size(); i++) {
+		if (!list1.get(i).equals(list2.get(i))) return false;
+	}
+	return true;
+}
+
+public void getLeafs(TreeNode root, List<Integer> list) {
+	if (root == null) return;
+	if (root.left == null && root.right == null) list.add(root.val);
+	getLeafs(root.left, list);
+	getLeafs(root.right, list);
+}
+
 }

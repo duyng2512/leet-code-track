@@ -40,46 +40,46 @@ public class MinimumMeetingRooms {
 	Explanation: We will need one room for [2,3] and [3,5], and another room for [2,4] and [4,5].
 	
       */
-     
-     public int minMeetingRooms(int[][] intervals) {
-          if (intervals.length == 0) return 0;
-          // Room order and its end time
-          Map<Integer, Integer> rooms = new HashMap<>();
-          Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
-          rooms.put(0, intervals[0][1]);
-     
-          for (int i = 1; i < intervals.length; i++) {
-               // Check if needed new room
-               boolean needNewRoom = true;
-               for (Map.Entry<Integer, Integer> room : rooms.entrySet()) {
-                    if (room.getValue() <= intervals[i][0]) {
-                         // There is available room
-                         room.setValue(intervals[i][1]);
-                         // Update new end
-                         needNewRoom = false;
-                         break;
-                    }
-               }
-               if (needNewRoom) rooms.put(i, intervals[i][1]);
-          }
-          return rooms.size();
-     }
-     
-     public static void main(String[] args) {
-          System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][] {{1,4}, {2,3}, {2,5}, {7,9}}));
-          // [[6,7], [2,4], [8,12]]
 
-          System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][] {{6,7}, {2,4}, {8,12}}));
-          // [[1,4], [2,3], [3,6]]
+public static void main(String[] args) {
+	System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][]{{1, 4}, {2, 3}, {2, 5}, {7, 9}}));
+	// [[6,7], [2,4], [8,12]]
+	
+	System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][]{{6, 7}, {2, 4}, {8, 12}}));
+	// [[1,4], [2,3], [3,6]]
+	
+	System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][]{{1, 4}, {2, 3}, {3, 6}}));
+	
+	// [[4,5], [2,3], [2,4], [3,5]]
+	System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][]{{4, 5}, {2, 3}, {2, 4}, {3, 5}}));
+	
+	// {{1293,2986},{848,3846},{4284,5907},{4466,4781},{518,2918},{300,5870}}
+	// {300,5870} {518,2918} {848,3846} {1293,2986} {4284,5907} {4466,4781}}
+	System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][]{{1293, 2986}, {848, 3846}, {4284, 5907}, {4466, 4781}, {518, 2918}, {300, 5870}}));
+}
 
-          System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][] {{1,4}, {2,3}, {3,6}}));
+public int minMeetingRooms(int[][] intervals) {
+	if (intervals.length == 0) return 0;
+	// Room order and its end time
+	Map<Integer, Integer> rooms = new HashMap<>();
+	Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
+	rooms.put(0, intervals[0][1]);
+	
+	for (int i = 1; i < intervals.length; i++) {
+		// Check if needed new room
+		boolean needNewRoom = true;
+		for (Map.Entry<Integer, Integer> room : rooms.entrySet()) {
+			if (room.getValue() <= intervals[i][0]) {
+				// There is available room
+				room.setValue(intervals[i][1]);
+				// Update new end
+				needNewRoom = false;
+				break;
+			}
+		}
+		if (needNewRoom) rooms.put(i, intervals[i][1]);
+	}
+	return rooms.size();
+}
 
-          // [[4,5], [2,3], [2,4], [3,5]]
-          System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][] {{4,5}, {2,3}, {2,4}, {3,5}}));
-          
-          // {{1293,2986},{848,3846},{4284,5907},{4466,4781},{518,2918},{300,5870}}
-          // {300,5870} {518,2918} {848,3846} {1293,2986} {4284,5907} {4466,4781}}
-          System.out.println(MinimumMeetingRooms.builder().build().minMeetingRooms(new int[][]  {{1293,2986},{848,3846},{4284,5907},{4466,4781},{518,2918},{300,5870}} ));
-     }
-     
 }

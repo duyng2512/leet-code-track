@@ -1,18 +1,14 @@
 package org.dng.code.daily._2022;
 
-import org.dng.code.utils.ListNode;
 import org.dng.code.utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class D8_MaximumDiffBetweenNodeAncestor {
-     
-     /**
-      * @desc: https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/description/
-      */
 
-     static public int transverse(TreeNode root, int min, int max) {
+/**
+ * @desc: https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/description/
+ */
+
+static public int transverse(TreeNode root, int min, int max) {
 	if (root == null) return 0;
 	
 	if (root.val < min) min = root.val;
@@ -22,14 +18,14 @@ public class D8_MaximumDiffBetweenNodeAncestor {
 	int right = transverse(root.right, min, max);
 	
 	return Math.max(left, Math.max(right, max - min));
-     }
-     
-     static public int maxAncestorDiff(TreeNode root) {
+}
+
+static public int maxAncestorDiff(TreeNode root) {
 	if (root == null) return 0;
 	return transverse(root, root.val, root.val);
-     }
-     
-     public static void main(String[] args) {
+}
+
+public static void main(String[] args) {
 	TreeNode r = new TreeNode(8);
 	r.left = new TreeNode(3);
 	r.left.left = new TreeNode(1);
@@ -40,7 +36,7 @@ public class D8_MaximumDiffBetweenNodeAncestor {
 	r.right = new TreeNode(10);
 	r.right.right = new TreeNode(14);
 	r.right.right.left = new TreeNode(13);
- 
+	
 	System.out.println(maxAncestorDiff(r));
-     }
+}
 }

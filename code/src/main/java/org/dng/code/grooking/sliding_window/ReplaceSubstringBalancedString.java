@@ -24,12 +24,12 @@ public class ReplaceSubstringBalancedString {
 	Output: 1
 	Explanation: We need to replace a 'Q' to 'R', so that "RQWE" (or "QRWE") is balanced.
       */
-     
-     static boolean isPerfect(Map<Character, Integer> map) {
+
+static boolean isPerfect(Map<Character, Integer> map) {
 	return map.entrySet().stream().noneMatch(e -> e.getValue() > 0);
-     }
-     
-     static public int balancedString(String s) {
+}
+
+static public int balancedString(String s) {
 	
 	/*
 		Intuitive, first we count all character in string
@@ -47,7 +47,7 @@ public class ReplaceSubstringBalancedString {
 	map.put('R', 0);
 	
 	for (int i = 0; i < s.length(); i++) {
-	     map.merge(s.charAt(i), 1, Integer::sum);
+		map.merge(s.charAt(i), 1, Integer::sum);
 	}
 	
 	// Update map
@@ -57,27 +57,27 @@ public class ReplaceSubstringBalancedString {
 	map.put('R', Math.max(0, map.get('R') - limit));
 	
 	if (isPerfect(map)) {
-	     return 0;
+		return 0;
 	}
 	
 	int start = 0, end;
 	int result = Integer.MAX_VALUE;
 	for (end = 0; end < s.length(); end++) {
-	     map.merge(s.charAt(end), -1, Integer::sum);
-	     
-	     while (isPerfect(map)) {
-		map.merge(s.charAt(start), 1, Integer::sum);
-		result = Math.min(result, end - start + 1);
-		start++;
-	     }
+		map.merge(s.charAt(end), -1, Integer::sum);
+		
+		while (isPerfect(map)) {
+			map.merge(s.charAt(start), 1, Integer::sum);
+			result = Math.min(result, end - start + 1);
+			start++;
+		}
 	}
 	return result;
-     }
-     
-     
-     public static void main(String[] args) {
+}
+
+
+public static void main(String[] args) {
 	System.out.println(balancedString("QQQQEERR"));
-     }
-     
-     
+}
+
+
 }

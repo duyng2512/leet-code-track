@@ -1,10 +1,11 @@
 package org.dng.code.grooking.breath_first_search;
 
-import lombok.Builder;
 import org.dng.code.utils.TreeNode;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 
 public class BinaryTreeLeveOrderTraversal {
@@ -24,14 +25,24 @@ public class BinaryTreeLeveOrderTraversal {
           Input: root = []
           Output: []
       */
-     
-     List<List<Integer>> levels;
-     
-     public BinaryTreeLeveOrderTraversal() {
+
+List<List<Integer>> levels;
+
+public BinaryTreeLeveOrderTraversal() {
 	this.levels = new ArrayList<List<Integer>>();
-     }
-     
-     public void helper(TreeNode node, int level) {
+}
+
+public static void main(String[] args) {
+	TreeNode root = new TreeNode(3);
+	root.left = new TreeNode(9);
+	root.right = new TreeNode(20);
+	root.right.left = new TreeNode(15);
+	root.right.right = new TreeNode(7);
+	BinaryTreeLeveOrderTraversal traversal = new BinaryTreeLeveOrderTraversal();
+	System.out.println(traversal.levelOrder(root));
+}
+
+public void helper(TreeNode node, int level) {
 	// start the current level
 	if (levels.size() == level) levels.add(new ArrayList<>());
 	
@@ -41,15 +52,15 @@ public class BinaryTreeLeveOrderTraversal {
 	// process child nodes for the next level
 	if (node.left != null) helper(node.left, level + 1);
 	if (node.right != null) helper(node.right, level + 1);
-     }
-     
-     public List<List<Integer>> levelOrder(TreeNode root) {
+}
+
+public List<List<Integer>> levelOrder(TreeNode root) {
 	if (root == null) return levels;
 	helper(root, 0);
 	return levels;
-     }
-     
-     public List<List<Integer>> levelOrderV2(TreeNode root) {
+}
+
+public List<List<Integer>> levelOrderV2(TreeNode root) {
 	if (root == null) return new ArrayList<>();
 	
 	List<List<Integer>> levels = new ArrayList<>();
@@ -58,29 +69,19 @@ public class BinaryTreeLeveOrderTraversal {
 	deque.add(root);
 	
 	while (!deque.isEmpty()) {
-	     levels.add(new ArrayList<>());
-	     int levelLen = deque.size();
-	     for (int i = 0; i < levelLen; i++) {
-		
-		TreeNode remove = deque.remove();
-		levels.get(level).add(remove.val);
-		
-		if (remove.left != null) deque.add(remove.left);
-		if (remove.right != null) deque.add(remove.right);
-	     }
-	     level++;
+		levels.add(new ArrayList<>());
+		int levelLen = deque.size();
+		for (int i = 0; i < levelLen; i++) {
+			
+			TreeNode remove = deque.remove();
+			levels.get(level).add(remove.val);
+			
+			if (remove.left != null) deque.add(remove.left);
+			if (remove.right != null) deque.add(remove.right);
+		}
+		level++;
 	}
 	return levels;
-     }
-     
-     public static void main(String[] args) {
-	TreeNode root = new TreeNode(3);
-	root.left = new TreeNode(9);
-	root.right = new TreeNode(20);
-	root.right.left = new TreeNode(15);
-	root.right.right = new TreeNode(7);
-	BinaryTreeLeveOrderTraversal traversal = new BinaryTreeLeveOrderTraversal();
-	System.out.println(traversal.levelOrder(root));
-     }
-     
+}
+
 }

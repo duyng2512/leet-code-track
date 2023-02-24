@@ -29,29 +29,29 @@ public class SetMismatch {
 	Input: nums = [1,1]
 	Output: [1,2]
       */
-     
-     static void cyclicSort(int[] arr) {
+
+static void cyclicSort(int[] arr) {
 	int i = 0;
 	while (i < arr.length) {
-	     int correctIdx = arr[i] - 1;
-	     if (arr[i] != arr[correctIdx]) MiscUtils.swap(arr, i, correctIdx);
-	     else i++;
+		int correctIdx = arr[i] - 1;
+		if (arr[i] != arr[correctIdx]) MiscUtils.swap(arr, i, correctIdx);
+		else i++;
 	}
-     }
-     
-     public int[] findErrorNums(int[] nums) {
+}
+
+public static void main(String[] args) {
+	System.out.println(Arrays.toString(SetMismatch.builder().build().findErrorNums(new int[]{1, 2, 2, 4})));
+}
+
+public int[] findErrorNums(int[] nums) {
 	Set<Integer> result = new HashSet<>();
 	cyclicSort(nums);
 	for (int i = 0; i < nums.length; i++) {
-	     if (nums[i] - 1 != i) {
-		result.add(nums[i]);
-		result.add(i+1);
-	     }
+		if (nums[i] - 1 != i) {
+			result.add(nums[i]);
+			result.add(i + 1);
+		}
 	}
 	return result.stream().mapToInt(Integer::intValue).toArray();
-     }
-     
-     public static void main(String[] args) {
-	System.out.println(Arrays.toString(SetMismatch.builder().build().findErrorNums(new int[]{1, 2, 2, 4})));
-     }
+}
 }

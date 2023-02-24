@@ -23,27 +23,27 @@ public class MergeIntervals {
      Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 
       */
-     
-     public int[][] merge(int[][] intervals) {
+
+public static void main(String[] args) {
+
+}
+
+public int[][] merge(int[][] intervals) {
 	if (intervals.length == 1) return intervals;
 	MergeUtils.sortByFirstKey(intervals);
 	List<int[]> result = new LinkedList<>();
-	for (int[] interval: intervals) {
-	     int lastIndex = result.size() - 1;
-	     if (result.isEmpty() || result.get(lastIndex)[1] < interval[0]) {
-		result.add(interval);
-	     } else {
-		// Start to merge
-		int[] mergeInterval = new int[] { Math.min(interval[0], result.get(lastIndex)[0]),
-		     			Math.max(interval[1], result.get(lastIndex)[1])};
-		result.set(lastIndex, mergeInterval);
-	     }
-	
+	for (int[] interval : intervals) {
+		int lastIndex = result.size() - 1;
+		if (result.isEmpty() || result.get(lastIndex)[1] < interval[0]) {
+			result.add(interval);
+		} else {
+			// Start to merge
+			int[] mergeInterval = new int[]{Math.min(interval[0], result.get(lastIndex)[0]),
+					Math.max(interval[1], result.get(lastIndex)[1])};
+			result.set(lastIndex, mergeInterval);
+		}
+		
 	}
 	return result.toArray(new int[result.size()][]);
-     }
-     
-     public static void main(String[] args) {
-	
-     }
+}
 }

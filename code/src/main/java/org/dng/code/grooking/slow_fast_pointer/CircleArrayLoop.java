@@ -38,13 +38,13 @@ public class CircleArrayLoop {
      Output: false
      Explanation: The array does not have any cycle.
       */
-     
-     public boolean circularArrayLoop(int[] nums) {
+
+public static void main(String[] args) {
+
+}
+
+public boolean circularArrayLoop(int[] nums) {
 	return false;
-     }
-     
-     public static void main(String[] args) {
-	
-     }
+}
 
 }

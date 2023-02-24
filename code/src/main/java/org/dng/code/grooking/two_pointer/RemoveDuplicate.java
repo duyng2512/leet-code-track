@@ -36,22 +36,22 @@ public class RemoveDuplicate {
           
      
       */
-     
-     public int removeDuplicate(int[] nums) {
-          int dupIdx = 1;
-          for (int i = 1; i < nums.length; i++) {
-               if (nums[i] != nums[i-1]) { // encounter duplicate
-                    nums[dupIdx] = nums[i];
-                    dupIdx++;
-               }
-          }
-          System.out.println(Arrays.toString(nums));
-          return dupIdx;
-     }
-     
-     public static void main(String[] args) {
-          RemoveDuplicate duplicate = new RemoveDuplicate();
-          int result = duplicate.removeDuplicate(new int[] {2, 3, 3, 3, 6, 9, 9});
-     }
-     
+
+public static void main(String[] args) {
+	RemoveDuplicate duplicate = new RemoveDuplicate();
+	int result = duplicate.removeDuplicate(new int[]{2, 3, 3, 3, 6, 9, 9});
+}
+
+public int removeDuplicate(int[] nums) {
+	int dupIdx = 1;
+	for (int i = 1; i < nums.length; i++) {
+		if (nums[i] != nums[i - 1]) { // encounter duplicate
+			nums[dupIdx] = nums[i];
+			dupIdx++;
+		}
+	}
+	System.out.println(Arrays.toString(nums));
+	return dupIdx;
+}
+
 }

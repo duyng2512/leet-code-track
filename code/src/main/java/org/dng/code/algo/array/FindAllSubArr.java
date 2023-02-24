@@ -7,14 +7,14 @@ import java.util.List;
 
 @Builder
 public class FindAllSubArr {
-     
-     void allSub(int[] arr) {
-          List<Integer> resultArr = new ArrayList<>();
-          
-          
-     }
-     
-     public static void main(String[] args) {
-          FindAllSubArr.builder().build().allSub(new int[] {1, 2, 3} );
-     }
+
+public static void main(String[] args) {
+	FindAllSubArr.builder().build().allSub(new int[]{1, 2, 3});
+}
+
+void allSub(int[] arr) {
+	List<Integer> resultArr = new ArrayList<>();
+	
+	
+}
 }

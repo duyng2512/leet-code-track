@@ -29,42 +29,41 @@ public class PathCount {
      	 remember current sum and its frequency
      	
       */
-     
-     Long count = 0L;
-     HashMap<Long, Long> map = new HashMap<>();
-     
-     public void preOrderTree(TreeNode root, long curSum, long targetSum) {
-          if (root == null) return;
-          
-          curSum += root.val;
-          
-          // This is the first scenario we're talking about
-          if (curSum == targetSum) count++;
-     
-          // This is the second scenario we're talking about
-          count += map.getOrDefault(curSum - targetSum, 0L);
+
+Long count = 0L;
+HashMap<Long, Long> map = new HashMap<>();
+
+public static void main(String[] args) {
+
+}
+
+public void preOrderTree(TreeNode root, long curSum, long targetSum) {
+	if (root == null) return;
 	
-          // Put the pre fix to map
-          map.put(curSum, map.getOrDefault(curSum, 0L) + 1);
-          
-          preOrderTree(root.left, curSum, targetSum);
-          preOrderTree(root.right, curSum, targetSum);
-          
-          // We need to remove last element from map for its execute concurrently
-          
-          map.put(curSum, map.get(curSum) - 1);
-          
-     }
-     
-     public int pathSum(TreeNode root, long targetSum) {
-          int curSum = 0;
+	curSum += root.val;
+	
+	// This is the first scenario we're talking about
+	if (curSum == targetSum) count++;
+	
+	// This is the second scenario we're talking about
+	count += map.getOrDefault(curSum - targetSum, 0L);
+	
+	// Put the pre fix to map
+	map.put(curSum, map.getOrDefault(curSum, 0L) + 1);
+	
+	preOrderTree(root.left, curSum, targetSum);
+	preOrderTree(root.right, curSum, targetSum);
+	
+	// We need to remove last element from map for its execute concurrently
+	
+	map.put(curSum, map.get(curSum) - 1);
+	
+}
+
+public int pathSum(TreeNode root, long targetSum) {
+	int curSum = 0;
 	preOrderTree(root, curSum, targetSum);
-          return count.intValue();
-     }
-     
-     
-     public static void main(String[] args) {
-	
-     }
-     
+	return count.intValue();
+}
+
 }

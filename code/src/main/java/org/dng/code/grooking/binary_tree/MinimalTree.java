@@ -29,23 +29,8 @@ public class MinimalTree {
      	Get the second half add to node right
      
       */
-     
-     public TreeNode merge(int[] nums) {
-	if (nums.length == 0) return null;
-	
-	int middle = nums.length/2;
-	TreeNode node = new TreeNode(nums[middle]);
-	node.left = merge(Arrays.copyOfRange(nums, 0, middle));
-	node.right = merge(Arrays.copyOfRange(nums, middle + 1, nums.length));
- 
-	return node;
-     }
-     
-     public TreeNode sortedArrayToBST(int[] nums) {
-	return merge(nums);
-     }
-     
-     public static void main(String[] args) {
+
+public static void main(String[] args) {
 	List<Integer> myList = new ArrayList<>();
 	myList.add(1);
 	myList.add(2);
@@ -54,9 +39,24 @@ public class MinimalTree {
 	ListIterator<Integer> iter = myList.listIterator();
 	
 	while (iter.hasNext()) {
-	     if (3 == iter.next()) {
-		iter.remove();
-	     }
+		if (3 == iter.next()) {
+			iter.remove();
+		}
 	}
-     }
+}
+
+public TreeNode merge(int[] nums) {
+	if (nums.length == 0) return null;
+	
+	int middle = nums.length / 2;
+	TreeNode node = new TreeNode(nums[middle]);
+	node.left = merge(Arrays.copyOfRange(nums, 0, middle));
+	node.right = merge(Arrays.copyOfRange(nums, middle + 1, nums.length));
+	
+	return node;
+}
+
+public TreeNode sortedArrayToBST(int[] nums) {
+	return merge(nums);
+}
 }

@@ -30,57 +30,57 @@ public class RearrangeLinkedList {
           Input: 2 -> 4 -> 6 -> 8 -> 10 -> null
           Output: 2 -> 10 -> 4 -> 8 -> 6 -> null
       */
-     
-     public void reorderList(ListNode head) {
-          if (head == null)
-               return;
-     
-          if (head.next == null)
-               return;
-          
-          
-          ListNode slow = head;
-          ListNode fast = head;
-          
-          while (fast != null && fast.next != null) {
-               slow = slow.next;
-               fast = fast.next.next;
-          }
-          
-          if (fast != null) slow = slow.next;
-          
-          ListNode reverse = ListUtils.reverseList(slow);
-          ListNode start = head;
-     
-          // Find the second last node
-          ListNode second_last = head;
-          while (second_last.next.next != null)
-               second_last = second_last.next;
-     
-          // Change next of second last
-          second_last.next = null;
-          
-          while (start != null && reverse != null) {
-               ListNode nextStart = start.next;
-               ListNode insertNode = new ListNode(reverse.val);
-               insertNode.next = nextStart;
-               start.next = insertNode;
-               start = nextStart;
-               reverse = reverse.next;
-          }
-          ListUtils.print(head);
-     }
-     
-     public static void main(String[] args) {
-          RearrangeLinkedList list = new RearrangeLinkedList();
-	ListNode node = ListUtils.buildList(new int[] {1, 2, 4, 5});
-          list.reorderList(node);
-          System.out.println("------------------");
-          node = ListUtils.buildList(new int[] {1, 2, 3, 4});
-          list.reorderList(node);
-          System.out.println("------------------");
-          node = ListUtils.buildList(new int[] {1, 2, 3, 4, 5});
-          list.reorderList(node);
-     }
-     
+
+public static void main(String[] args) {
+	RearrangeLinkedList list = new RearrangeLinkedList();
+	ListNode node = ListUtils.buildList(new int[]{1, 2, 4, 5});
+	list.reorderList(node);
+	System.out.println("------------------");
+	node = ListUtils.buildList(new int[]{1, 2, 3, 4});
+	list.reorderList(node);
+	System.out.println("------------------");
+	node = ListUtils.buildList(new int[]{1, 2, 3, 4, 5});
+	list.reorderList(node);
+}
+
+public void reorderList(ListNode head) {
+	if (head == null)
+		return;
+	
+	if (head.next == null)
+		return;
+	
+	
+	ListNode slow = head;
+	ListNode fast = head;
+	
+	while (fast != null && fast.next != null) {
+		slow = slow.next;
+		fast = fast.next.next;
+	}
+	
+	if (fast != null) slow = slow.next;
+	
+	ListNode reverse = ListUtils.reverseList(slow);
+	ListNode start = head;
+	
+	// Find the second last node
+	ListNode second_last = head;
+	while (second_last.next.next != null)
+		second_last = second_last.next;
+	
+	// Change next of second last
+	second_last.next = null;
+	
+	while (start != null && reverse != null) {
+		ListNode nextStart = start.next;
+		ListNode insertNode = new ListNode(reverse.val);
+		insertNode.next = nextStart;
+		start.next = insertNode;
+		start = nextStart;
+		reverse = reverse.next;
+	}
+	ListUtils.print(head);
+}
+
 }

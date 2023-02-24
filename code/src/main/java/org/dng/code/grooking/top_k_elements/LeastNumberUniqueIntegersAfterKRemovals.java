@@ -1,6 +1,8 @@
 package org.dng.code.grooking.top_k_elements;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LeastNumberUniqueIntegersAfterKRemovals {
@@ -26,39 +28,40 @@ public class LeastNumberUniqueIntegersAfterKRemovals {
           We want to replace k number with the least frequency
      
       */
-     
-     public static int findLeastNumOfUniqueInts(int[] arr, int k) {
+
+public static int findLeastNumOfUniqueInts(int[] arr, int k) {
 	Map<Integer, Integer> freq = new HashMap<>();
-          for (int num : arr) {
-               freq.put(num, freq.getOrDefault(num, 0) + 1);
-          };
-          
-          
-          List<Map.Entry<Integer, Integer>> sort =  freq.entrySet()
-               .stream()
-               .sorted(Map.Entry.comparingByValue())
-               .collect(Collectors.toList());
-          int remain = k;
-          for (Map.Entry<Integer, Integer> entry: sort) {
-               if (remain > entry.getValue()) {
-                    remain -= entry.getValue();
-                    entry.setValue(0);
-               } else {
-                    entry.setValue(entry.getValue() - remain);
-                    break;
-               }
-          }
-          int result = 0;
-          for (Map.Entry<Integer, Integer> entry: sort) {
-               if (entry.getValue() > 0) {
-                    result++;
-               }
-          }
-          return result;
-     }
-     
-     public static void main(String[] args) {
-          System.out.println(findLeastNumOfUniqueInts(new int[] {5,5,4}, 1));
-          System.out.println(findLeastNumOfUniqueInts(new int[] {4,3,1,1,3,3,2}, 3));
-     }
+	for (int num : arr) {
+		freq.put(num, freq.getOrDefault(num, 0) + 1);
+	}
+	;
+	
+	
+	List<Map.Entry<Integer, Integer>> sort = freq.entrySet()
+													 .stream()
+													 .sorted(Map.Entry.comparingByValue())
+													 .collect(Collectors.toList());
+	int remain = k;
+	for (Map.Entry<Integer, Integer> entry : sort) {
+		if (remain > entry.getValue()) {
+			remain -= entry.getValue();
+			entry.setValue(0);
+		} else {
+			entry.setValue(entry.getValue() - remain);
+			break;
+		}
+	}
+	int result = 0;
+	for (Map.Entry<Integer, Integer> entry : sort) {
+		if (entry.getValue() > 0) {
+			result++;
+		}
+	}
+	return result;
+}
+
+public static void main(String[] args) {
+	System.out.println(findLeastNumOfUniqueInts(new int[]{5, 5, 4}, 1));
+	System.out.println(findLeastNumOfUniqueInts(new int[]{4, 3, 1, 1, 3, 3, 2}, 3));
+}
 }

@@ -1,7 +1,5 @@
 package org.dng.code.grooking.two_pointer;
 
-import lombok.Builder;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,30 +26,30 @@ public class PairWithTargetSum {
     Output: [0, 2]
     Explanation: The numbers at index 0 and 2 add up to 11: 2+9=11
      */
-    
-    public void pairWithTargetSum(int[] arr, int target) {
-        int left = 0;
-        int right = arr.length - 1;
-        Set<Integer> result = new HashSet<>();
-        
-        while (left < right) {
-            int total = arr[left] + arr[right];
-            if (total < target) {
-                left++;
-            } else if (total > target) {
-                right--;
-            } else {
-                result.add(left);
-                result.add(right);
-                System.out.println(result);
-                return;
-            }
-        }
-    }
-    
-    public static void main(String[] args) {
-        PairWithTargetSum sum = new PairWithTargetSum();
-        sum.pairWithTargetSum(new int[] {2, 5, 9, 11}, 11 );
-        sum.pairWithTargetSum(new int[] {1, 2, 3, 4, 6}, 6 );
-    }
+
+public static void main(String[] args) {
+	PairWithTargetSum sum = new PairWithTargetSum();
+	sum.pairWithTargetSum(new int[]{2, 5, 9, 11}, 11);
+	sum.pairWithTargetSum(new int[]{1, 2, 3, 4, 6}, 6);
+}
+
+public void pairWithTargetSum(int[] arr, int target) {
+	int left = 0;
+	int right = arr.length - 1;
+	Set<Integer> result = new HashSet<>();
+	
+	while (left < right) {
+		int total = arr[left] + arr[right];
+		if (total < target) {
+			left++;
+		} else if (total > target) {
+			right--;
+		} else {
+			result.add(left);
+			result.add(right);
+			System.out.println(result);
+			return;
+		}
+	}
+}
 }
