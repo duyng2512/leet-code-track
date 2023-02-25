@@ -1,11 +1,11 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.binary_search;
 
 import java.util.Arrays;
 
 /**
  * @author duyntc 12/2022
  */
-public class D21_LongestSubsequenceLimitedSum {
+public class LongestSubsequenceLimitedSum {
 
 /**
  * @desc: https://leetcode.com/problems/longest-subsequence-with-limited-sum/

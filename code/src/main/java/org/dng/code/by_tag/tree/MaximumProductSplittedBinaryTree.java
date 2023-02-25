@@ -5,7 +5,7 @@ import org.dng.code.utils.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class D4_MaximumProductSplittedBinaryTree {
+public class MaximumProductSplittedBinaryTree {
 
 	/*
 	Given the root of a binary tree, split the binary tree into two subtrees

@@ -1,8 +1,8 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.dynamic_programming;
 
 import java.util.Arrays;
 
-public class D11_HouseRobber {
+public class HouseRobber {
 
 /**
  * @desc: https://leetcode.com/problems/house-robber/

@@ -1,4 +1,4 @@
-package org.dng.code.daily._2023;
+package org.dng.code.by_tag.hash_table;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,8 @@ import java.util.Map;
 /**
  * @author duyntc 02/2023
  */
-public class D1_VerifyingAlienDictionary {
+public class VerifyingAlienDictionary {
+	// https://leetcode.com/problems/verifying-an-alien-dictionary/
 
 static public boolean isAlienSorted(String[] words, String order) {
 	Map<Character, Integer> map = buildMap(order);

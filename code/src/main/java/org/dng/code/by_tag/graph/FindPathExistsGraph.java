@@ -1,11 +1,11 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.graph;
 
 import java.util.*;
 
 /**
  * @author duyntc 12/2022
  */
-public class D16_FindPathExistsGraph {
+public class FindPathExistsGraph {
 
 /**
  * @desc: https://leetcode.com/problems/find-if-path-exists-in-graph/

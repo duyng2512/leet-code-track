@@ -5,7 +5,7 @@ import org.dng.code.utils.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class D2_LeafSimilarTrees {
+public class LeafSimilarTrees {
      
      /*
      	Consider all the leaves of a binary tree, from left to right order,
@@ -32,7 +32,7 @@ public static void main(String[] args) {
 	root_2.left = new TreeNode(3);
 	
 	List<Integer> list = new ArrayList<>();
-	D2_LeafSimilarTrees trees = new D2_LeafSimilarTrees();
+	LeafSimilarTrees trees = new LeafSimilarTrees();
 	trees.getLeafs(root_2, list);
 	System.out.println(list);
 }

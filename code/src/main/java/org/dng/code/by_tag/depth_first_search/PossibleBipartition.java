@@ -1,4 +1,4 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.depth_first_search;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author duyntc 12/2022
  */
-public class D16_PossibleBipartition {
+public class PossibleBipartition {
 
 /**
  * @desc: https://leetcode.com/problems/possible-bipartition/

@@ -1,11 +1,11 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.stack;
 
 import java.util.Stack;
 
 /**
  * @author duyntc 12/2022
  */
-public class D14_EvaluateReversePolishNotation {
+public class EvaluateReversePolishNotation {
 
 /**
  * @desc: https://leetcode.com/problems/evaluate-reverse-polish-notation/description/

@@ -1,11 +1,11 @@
-package org.dng.code.daily._2023;
+package org.dng.code.by_tag.hash_table;
 
 import java.util.Arrays;
 
 /**
  * @author duyntc 02/2023
  */
-public class D3_PermutationString {
+public class PermutationString {
 
 /**
  * https://leetcode.com/problems/permutation-in-string/submissions/891165771/

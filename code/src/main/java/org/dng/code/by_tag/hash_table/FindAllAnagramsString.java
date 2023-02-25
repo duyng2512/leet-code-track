@@ -1,4 +1,4 @@
-package org.dng.code.daily._2023;
+package org.dng.code.by_tag.hash_table;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author duyntc 02/2023
  */
-public class D4_FindAllAnagramsString {
+public class FindAllAnagramsString {
 
 /**
  * Given two strings s and p, return an array of all the start indices of p's anagrams in s.

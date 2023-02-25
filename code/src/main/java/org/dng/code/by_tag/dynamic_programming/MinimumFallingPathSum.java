@@ -1,6 +1,6 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.dynamic_programming;
 
-public class D10_MinimumFallingPathSum {
+public class MinimumFallingPathSum {
 
 /**
  * @desc: https://leetcode.com/problems/minimum-falling-path-sum/

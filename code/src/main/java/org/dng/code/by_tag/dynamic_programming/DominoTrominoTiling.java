@@ -1,4 +1,4 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.dynamic_programming;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author duyntc 12/2022
  */
-public class D19_DominoTrominoTiling {
+public class DominoTrominoTiling {
 
 /**
  * @desc: https://leetcode.com/problems/domino-and-tromino-tiling/

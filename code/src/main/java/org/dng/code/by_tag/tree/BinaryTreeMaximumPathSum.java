@@ -1,8 +1,8 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.tree;
 
 import org.dng.code.utils.TreeNode;
 
-public class D5_BinaryTreeMaximumPathSum {
+public class BinaryTreeMaximumPathSum {
 
 /**
  * @desc: https://leetcode.com/problems/binary-tree-maximum-path-sum/
@@ -18,7 +18,7 @@ public static void main(String[] args) {
 	r.right.left = new TreeNode(15);
 	r.right.right = new TreeNode(7);
 	
-	D5_BinaryTreeMaximumPathSum m = new D5_BinaryTreeMaximumPathSum();
+	BinaryTreeMaximumPathSum m = new BinaryTreeMaximumPathSum();
 	System.out.println(m.maxPathSum(r));
 }
 

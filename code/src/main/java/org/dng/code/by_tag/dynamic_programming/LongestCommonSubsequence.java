@@ -1,9 +1,9 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.dynamic_programming;
 
 /**
  * @author duyntc 12/2022
  */
-public class D13_LongestCommonSubsequence {
+public class LongestCommonSubsequence {
 
 /**
  * @desc: https://leetcode.com/problems/longest-common-subsequence/description/

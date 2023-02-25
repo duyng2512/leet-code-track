@@ -1,8 +1,8 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.tree;
 
 import org.dng.code.utils.TreeNode;
 
-public class D8_MaximumDiffBetweenNodeAncestor {
+public class MaximumDiffBetweenNodeAncestor {
 
 /**
  * @desc: https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/description/

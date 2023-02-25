@@ -1,9 +1,9 @@
-package org.dng.code.daily._2023;
+package org.dng.code.by_tag.array;
 
 /**
  * @author duyntc 02/2023
  */
-public class D2_ZigzagConversion {
+public class ZigzagConversion {
 
 /**
  * P   A   H   N

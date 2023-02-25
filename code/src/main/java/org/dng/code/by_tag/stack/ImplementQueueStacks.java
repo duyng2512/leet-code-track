@@ -1,4 +1,4 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.stack;
 
 import java.util.Stack;
 
@@ -72,7 +72,7 @@ public boolean empty() {
  * boolean param_4 = obj.empty();
  */
 
-public class D12_ImplementQueueStacks {
+public class ImplementQueueStacks {
 
 /**
  * @desc: https://leetcode.com/problems/implement-queue-using-stacks/

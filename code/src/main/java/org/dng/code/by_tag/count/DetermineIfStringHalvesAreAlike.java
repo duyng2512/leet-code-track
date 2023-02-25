@@ -3,7 +3,7 @@ package org.dng.code.by_tag.count;
 import java.util.Arrays;
 import java.util.List;
 
-public class D1_DetermineIfStringHalvesAreAlike {
+public class DetermineIfStringHalvesAreAlike {
 
 public static boolean halvesAreAlike(String s) {
 	List<Character> list = Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');

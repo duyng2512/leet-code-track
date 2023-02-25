@@ -1,6 +1,6 @@
 package org.dng.code.by_tag.prefix_sum;
 
-public class D3_MinimumAverageDifference {
+public class MinimumAverageDifference {
      
      /*
      	You are given a 0-indexed integer array nums of length n.

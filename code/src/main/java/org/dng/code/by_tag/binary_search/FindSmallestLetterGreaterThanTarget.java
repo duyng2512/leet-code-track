@@ -1,12 +1,12 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.binary_search;
 
 /**
  * @author duyntc 12/2022
  */
-public class D18_SumDistancesTree {
+public class FindSmallestLetterGreaterThanTarget {
 
 /**
- * @desc: https://leetcode.com/problems/sum-of-distances-in-tree/
+ * @desc: https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
  */
 
 static public char nextGreatestLetter(char[] letters, char target) {

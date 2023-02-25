@@ -1,4 +1,4 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.stack;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -6,7 +6,7 @@ import java.util.Stack;
 /**
  * @author duyntc 12/2022
  */
-public class D15_DailyTemperatures {
+public class DailyTemperatures {
 
 public static void main(String[] args) {
 

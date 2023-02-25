@@ -1,8 +1,8 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.linked_list;
 
 import org.dng.code.utils.ListNode;
 
-public class D7_OddEvenLinkedList {
+public class OddEvenLinkedList {
 
 /**
  * @desc: https://leetcode.com/problems/odd-even-linked-list/description/

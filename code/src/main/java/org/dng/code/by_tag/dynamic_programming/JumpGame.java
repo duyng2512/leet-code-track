@@ -1,4 +1,4 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.dynamic_programming;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author duyntc 12/2022
  */
-public class D20_JumpGame {
+public class JumpGame {
 
 static Map<Integer, Index> map = new HashMap<>();
 

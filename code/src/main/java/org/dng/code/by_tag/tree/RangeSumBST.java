@@ -1,11 +1,11 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.tree;
 
 import org.dng.code.utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class D6_RangeSumBST {
+public class RangeSumBST {
 
 public static void main(String[] args) {
 	

@@ -1,9 +1,9 @@
-package org.dng.code.daily._2022;
+package org.dng.code.by_tag.dynamic_programming;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class D9_ClimbingStairs {
+public class ClimbingStairs {
 
 /**
  * @desc: https://leetcode.com/problems/climbing-stairs/
