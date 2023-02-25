@@ -8,33 +8,39 @@ import java.util.List;
 public class MinimumDistanceBetweenBSTNodes {
 
 /**
- * 1
- * 2 3
+ * 		   4
+ * 		 2   6
+ * 		1 3
+ *
+ *
+ * https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+ *
+ *
  */
-List<Integer> array = new ArrayList<>();
-
-public void traversal(TreeNode treeNode) {
-	if (treeNode == null) {
-		return;
+	List<Integer> array = new ArrayList<>();
+	
+	public void traversal(TreeNode treeNode) {
+		if (treeNode == null) {
+			return;
+		}
+		
+		traversal(treeNode.left);
+		
+		array.add(treeNode.val);
+		
+		traversal(treeNode.right);
 	}
 	
-	traversal(treeNode.left);
-	
-	array.add(treeNode.val);
-	
-	traversal(treeNode.right);
-}
-
-public int minDiffInBST(TreeNode root) {
-	traversal(root);
-	int min = Integer.MAX_VALUE;
-	
-	
-	for (int i = 1; i < array.size(); i++) {
-		min = Math.min(min, array.get(i) - array.get(i - 1));
+	public int minDiffInBST(TreeNode root) {
+		traversal(root);
+		int min = Integer.MAX_VALUE;
+		
+		
+		for (int i = 1; i < array.size(); i++) {
+			min = Math.min(min, array.get(i) - array.get(i - 1));
+		}
+		
+		return min;
 	}
-	
-	return min;
-}
 
 }

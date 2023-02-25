@@ -47,7 +47,7 @@ public static void swap(int[] arr, int currIdx, int correctIdx) {
 
 public static void main(String[] args) {
 	CyclicSort cyclicSort = CyclicSort.builder().build();
-	cyclicSort.cyclicSortV2(new int[]{4, 5, 6, 2, 1, 3});
+	cyclicSort.cyclicSortV2(new int[]{1, 3, 6, 4, 1, 2});
 }
 
 public void cyclicSort(int[] arr) {
