@@ -42,15 +42,19 @@ public static void main(String[] args) {
 	int result = duplicate.removeDuplicate(new int[]{2, 3, 3, 3, 6, 9, 9});
 }
 
+// 0 0 1 2 2 3
+// 0 1 2 2 2 3
+// 0 1 2 3 2 3
+
 public int removeDuplicate(int[] nums) {
-	int dupIdx = 1;
+	int dupIdx = 1; // Always add first index
 	for (int i = 1; i < nums.length; i++) {
-		if (nums[i] != nums[i - 1]) { // encounter duplicate
+		if (nums[i] != nums[i - 1]) { // encounter non duplicate
 			nums[dupIdx] = nums[i];
 			dupIdx++;
 		}
 	}
-	System.out.println(Arrays.toString(nums));
+	
 	return dupIdx;
 }
 
