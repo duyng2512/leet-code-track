@@ -6,9 +6,6 @@ import java.util.List;
 
 public class CarTest {
 	
-	static int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-	
-	
 	/**
 	 * 1 4 1
 	 * 1 5 1

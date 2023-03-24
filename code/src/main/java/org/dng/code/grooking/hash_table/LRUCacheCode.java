@@ -83,7 +83,8 @@ static class LRUCache {
 			map.put(key, value);
 			if (map.size() > cap) {
 				// Remove first element
-				map.remove(map.keySet().iterator().next());
+				Integer firstKey = map.keySet().iterator().next();
+				map.remove(firstKey);
 			}
 		}
 	}

@@ -1,5 +1,7 @@
 package org.dng.code.interview;
 
+import java.util.Arrays;
+
 public class RobotTest {
 	
 	static int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
@@ -55,7 +57,7 @@ public class RobotTest {
 			}
 			cell = arr[row][col];
 		}
-		
+		System.out.println(Arrays.deepToString(arr));
 		for (int[] ints : arr) {
 			for (int anInt : ints) {
 				if (anInt != -1 && anInt != 0) result++;

@@ -105,7 +105,6 @@ public class DisjointSet {
 				root[rootY] = rootX;
 				rank[rootX] += 1;
 			}
-			
 		}
 	}
 	

@@ -12,11 +12,11 @@ public static void main(String[] args) {
 	arr = new int[]{2, 6, 8, 5};
 	System.out.println(solutionFrog.solution(arr)); // 3
 	
-	arr = new int[]{1, 5, 5, 2, 6};
-	System.out.println(solutionFrog.solution(arr)); // 4
-	
-	arr = new int[]{0, 0};
-	System.out.println(solutionFrog.solution(arr)); // 2
+//	arr = new int[]{1, 5, 5, 2, 6};
+//	System.out.println(solutionFrog.solution(arr)); // 4
+//
+//	arr = new int[]{0, 0};
+//	System.out.println(solutionFrog.solution(arr)); // 2
 }
 
 public int solution(int[] blocks) {
@@ -25,6 +25,7 @@ public int solution(int[] blocks) {
 	for (int i = 0; i < blocks.length; i++) {
 		int currentDist = twoPointer(blocks, i);
 		result = Math.max(result, currentDist);
+		if (result == 3) System.out.println("I : " + i);
 	}
 	
 	return result;
