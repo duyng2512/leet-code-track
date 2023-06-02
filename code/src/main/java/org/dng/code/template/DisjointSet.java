@@ -1,4 +1,4 @@
-package org.dng.code.utils;
+package org.dng.code.template;
 
 import lombok.Getter;
 
@@ -15,11 +15,11 @@ public class DisjointSet {
 	 * union: can be optimized by ranking
 	 * find: can be optimized by compression
 	 */
-	
+
 	@Getter
 	private final int[] root;
 	private final int[] rank;
-	
+
 	public DisjointSet(int size) {
 		root = new int[size];
 		rank = new int[size];
@@ -28,7 +28,7 @@ public class DisjointSet {
 			rank[i] = 1;
 		}
 	}
-	
+
 	public static void main(String[] args) throws Exception {
 		DisjointSet uf = new DisjointSet(10);
 		// 1-2-5-6-7 3-8-9 4
@@ -47,7 +47,7 @@ public class DisjointSet {
 		System.out.println(uf.connected(4, 9)); // true
 		System.out.println(Arrays.toString(uf.getRoot()));
 	}
-	
+
 	/**
 	 * Intuitive: keep looping until find a node that value = index
 	 *
@@ -60,17 +60,17 @@ public class DisjointSet {
 		}
 		return v;
 	}
-	
+
 	public int findUnOptimizeR(int x) {
 		if (x == root[x]) {
 			return x;
 		}
 		return findUnOptimizeR(root[x]);
 	}
-	
-	
+
+
 	/* OPTIMIZE CODE */
-	
+
 	public void unionUnOptimize(int x, int y) {
 		int rootX = findUnOptimize(x);
 		int rootY = findUnOptimize(y);
@@ -78,7 +78,7 @@ public class DisjointSet {
 			root[rootY] = rootX;
 		}
 	}
-	
+
 	/**
 	 * Optimize solution
 	 */
@@ -89,13 +89,13 @@ public class DisjointSet {
 		return root[v] = find(root[v]);
 		// Result of parent will propagate to root[x] simultaneously update them
 	}
-	
+
 	public void union(int x, int y) {
 		int rootX = find(x);
 		int rootY = find(y);
-		
+
 		if (rootX != rootY) {
-			
+
 			// Choose which root is smaller
 			if (rank[rootX] > rank[rootY]) {
 				root[rootY] = rootX;
@@ -107,7 +107,7 @@ public class DisjointSet {
 			}
 		}
 	}
-	
+
 	public boolean connected(int x, int y) {
 		return find(x) == find(y);
 	}

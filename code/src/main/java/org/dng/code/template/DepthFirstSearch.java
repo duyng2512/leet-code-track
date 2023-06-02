@@ -1,8 +1,8 @@
-package org.dng.code.utils;
+package org.dng.code.template;
 
 import java.util.*;
 
-public class DFS {
+public class DepthFirstSearch {
 
     static class GridDFS {
         int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
@@ -95,9 +95,7 @@ public class DFS {
                 int pop = stack.pop();
                 if (seen.get(pop)) continue;
                 seen.set(pop, true);
-
                 System.out.print(pop + " ");
-
                 List<Integer> adjList = adjLists.get(pop);
                 for (Integer adjNode : adjList) {
                     if (!seen.get(adjNode)) {
